@@ -1,4 +1,6 @@
 --- 
+import '../assets/base.css';
+import Header from '../components/header.astro';
 interface Props {
 	title: string;
 }
@@ -17,23 +19,37 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<Header />
 		<slot />
+		<footer>
+			<p>
+			  Copyright &copy; 2023 |
+			  <a href="mailto:m.shrief.dev@proton.me" title="Mail"
+			   target="_blank" id="mail">M. Shrief</a>
+			</p>
+		</footer>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+
+<style lang="scss">
+// @import '../assets/mixins.scss';
+footer {
+  text-align: center;
+  margin-top: 1.6rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  #mail {
+    color: var(--text1);
+    text-decoration: none;
+	&:hover {
+		text-decoration:underline;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151A;
-		background-size: 224px;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+  }
+
+//   @include mQ($breakpoint-sm) {
+//     margin-top: 1rem;
+//     font-size: 1rem;
+//   }
+}
 </style>
