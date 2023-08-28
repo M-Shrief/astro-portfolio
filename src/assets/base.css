@@ -60,11 +60,8 @@
 
 * {
   /* Icons */
-  --icon-fill: var(--text1);
-  --icon-fill-hover: var(--text-highlight);
-}
-
-html {
+  --icon-fill: var(--text1-dark);
+  --icon-fill-hover: var(--text-highlight-dark);
 }
 
 body {
