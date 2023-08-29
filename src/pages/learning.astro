@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/footer.astro";
+---
+
+<Layout title="M. Shrief :: Learning">
+    <main>
+        <h1>Learning Journey</h1>
+
+        <p>Note: I'm not counting tutorials, blogs,...etc. </p>
+        <h2>Courses</h2>
+        <ul>
+            <li>CS50's Introduction to Programming with Python "CS50P" 2022</li>
+            <li>CMU, Intro to Database Systems(2022)</li>
+            <li>Redis university, Introduction to Redis Data Structures "RU101" (<a target="_blank" rel="course certificate" href="https://university.redis.com/certificates/3dca706d75e5426e8438a7d54602e379">Certificate</a>)</li>
+            <li>IBM, "DevOps, Cloud, and Agile Foundations" Specialization:
+                <ul>
+                    <li>Introduction to DevOps</li>
+                    <li>Introduction to Cloud Computing</li>
+                    <li>Introduction to Agile Development and Scrum (upcoming)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Books</h2>
+        <ul>
+            <li>Code Complete (Reached and finished Part 4)</li>
+            <li>Working Effectively with Legacy code (reached and finished part2, CH9)</li>
+            <li>Patterns of Enterprise Application Architecture (reached and finished the first 40 pages)</li>
+            <li>Grokking Algorithms</li>
+            <li>Designing Data Intensive Application (reached and finished part1)</li>
+            <li>JavaScript Enlightenment</li>
+            <li>Object-Oriented JavaScript by Stoyan Stefanov</li>
+            <li>Clean Code, finished: Intro, Meaningful names, Functions, Comments, Objects and data structures, Unit Tests, Error Handling, and Boundaries</li>
+            <li>Currently Focusing on:
+                <ul>
+                    <li>Design Data Intensive</li>
+                    <li>Nodejs Design Patterns</li>
+                </ul>
+            </li>
+        </ul>
+    </main>
+    <Footer/>
+</Layout>
+
+<style lang="scss">
+    main {
+        width: 80%;
+        margin: 0 auto;
+        h1, h2 {
+            text-decoration: underline;
+        }
+
+        ul li {
+            font-size: 1.2rem;
+        }
+    }
+</style>
