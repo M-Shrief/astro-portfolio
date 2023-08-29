@@ -1,0 +1,36 @@
+---
+import ContactInfo from "./contactInfo.astro";
+---
+
+
+<footer>
+    <p>Copyright &copy; 2023 | M. Shrief</p>
+    <ContactInfo />
+</footer>
+
+
+<style lang="scss">
+@import '../assets/mixins.scss';
+footer {
+    text-align: center;
+    margin-top: 1.6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    #mail {
+    color: var(--text1);
+    text-decoration: none;
+    &:hover {
+        text-decoration:underline;
+    }
+    }
+
+    @include mQ($breakpoint-sm) {
+    margin-top: 1rem;
+    font-size: 1rem;
+    }
+
+    // @include social-info;
+}
+</style>
+    
