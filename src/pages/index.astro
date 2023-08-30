@@ -29,7 +29,9 @@ import ContactInfo from '../components/contactInfo.astro';
 				<li>Going to Learn <strong>Go</strong>.</li>
 			</ul>
 
-			<ContactInfo />
+			<ContactInfo >
+				<a class="social-info" slot="resume"  rel="Download resume" target="_blank"  href="https://raw.githubusercontent.com/M-Shrief/M-Shrief/main/Mohamed%20Shrief%20-%20Junior%20Backend%20%26%20Frontend%20developer.pdf">Resume</a>
+			</ContactInfo>
 		</section>
 		<section id="blogs">
 			<h2>Blogs</h2>
@@ -42,7 +44,7 @@ import ContactInfo from '../components/contactInfo.astro';
 </Layout>
 
 <style lang="scss">
-// @import '../assets/mixins.scss';
+@import '../assets/mixins.scss';
 main {
 	padding: 0 2rem;
 	#summary {
@@ -56,6 +58,8 @@ main {
 				font-size: 1.2rem;
 			}
 		}
+
+		@include social-info;  
 	}
 
 	#blogs {
