@@ -1,0 +1,110 @@
+---
+// Layout
+import Layout from "../layouts/Layout.astro";
+// Components
+import PreviewTabsList from "../components/previewTabsList.astro";
+import Footer from "../components/footer.astro";
+---
+
+<Layout title="Adeeb :: Projecs" >
+    <main>
+        <h1>Projects: “Adeeb أديب” (personal project)</h1>
+        <p>It's concerned with Arabic literature. It assumes a business model that enables
+        you to order a specific piece of literature to be printed with especial colors
+        and font. Then it'll be delivered to the customer, with the ability for the
+        customer to follow up the process. And for special customers, it provides them
+        with the ability to make bulk orders fast and easy. And if they’re willing to
+        signup, they can review all of their past orders.</p>
+
+        <h3>My Role: Frontend & Backend development, it have 2 versions:</h2>
+            <ul id="adeeb-overview">
+                <li>“Adeeb أديب ” SSR with a REST API 
+                    ( <a href="https://github.com/M-Shrief/Adeeb_Astro_SSR" target="_blank" title="github repo">Frontend's repo</a> - 
+                    <a href="https://github.com/M-Shrief/Adeeb_ExpressTS_Postgres" target="_blank" title="github repo">Backend's repo</a> )
+                    <ul>
+                        <li>Tech stack:
+                            <ul>
+                                <li>TypeScript with HTML & CSS</li>
+                                <li>Astro & Vuejs</li>
+                                <li>Nodejs & Express.js</li>
+                                <li>Postgres & TypeORM with Redis</li>
+                            </ul>
+                        </li>
+                        <li>Characteristics:
+                            <ul>
+                                <li>JWT authentication & authorization</li>
+                                <li>Data validation with vee-validate & Yup</li>
+                                <li>Dark/Light Theme</li>
+                                <li>API tests with Mocha & Chai.</li>
+                                <li>Using PM2 for process management.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>“Adeeb أديب ” SPA with a REST API 
+                    ( <a href="https://github.com/M-Shrief/Adeeb_Vue_TS" target="_blank" title="github repo">Frontend's repo</a> - 
+                    <a href="https://github.com/M-Shrief/Adeeb_ExpressTS" target="_blank" title="github repo">Backend's repo</a> )
+                    <ul>
+                        <li>Tech stack:
+                            <ul>
+                                <li>TypeScript with HTML & CSS</li>
+                                <li>Vuejs with Pinia & vue-router</li>
+                                <li>Nodejs & Express.js</li>
+                                <li>MongoDB with Redis</li>
+                            </ul>
+                        </li>
+                        <li>Characteristics:
+                            <ul>
+                                <li>JWT authentication & authorization</li>
+                                <li>Data validation with vee-validate & Yup</li>
+                                <li>Dark/Light Theme</li>
+                                <li>API tests with Mocha & Chai, frontend component testing with Cypress.</li>
+                                <li>Using PM2 for process management.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+        <PreviewTabsList/>
+        
+        
+    </main>
+    <Footer/>
+</Layout>
+
+<style lang="scss">
+main {
+    padding: 0  2rem;
+    h1 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1.2rem;
+    }
+    #adeeb-overview {
+        ul {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+
+            li  {
+                font-size: 1.05rem;
+            }
+
+           
+        }
+    }
+
+     a {
+        text-decoration: none;
+        text-decoration: underline; 
+        color: var(--text1);
+        opacity: 0.8;
+        &:hover {
+            opacity: 1;
+            font-weight: 600;
+        }
+    }
+}
+</style>
