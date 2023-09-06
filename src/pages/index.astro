@@ -1,76 +1,94 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ContactInfo from '../components/contactInfo.astro';
-// export function getHeaders() {
-//     const headers = [...document.querySelectorAll(' h2,h3,h4,h5,h6')]
-//         .filter((el) => el.id && el.hasChildNodes())
-//         .map((el) => {
-//         const level = Number(el.tagName[1]);
-//         return {
-//             title: el,
-//             link: '#' + el.id,
-//             level
-//         };
-//     });
-//     return headers;
-// }
+import Layout from "../layouts/Layout.astro";
+import ContactInfo from "../components/contactInfo.astro";
+import Badge from "../components/badge.astro";
 ---
 
 <Layout title="M. Shrief :: Home">
-	<main>
-		<section id="summary">
-			<h1> Mohamed Shrief - Junior Backend & Frontend Developer</h1>
+  <main>
+    <section id="summary">
+      <h1>Mohamed Shrief - Junior Backend & Frontend Developer</h1>
 
-			<ul>
-				<li>Working mainly with <strong>JavaScript</strong> & <strong>TypeScript</strong>.</li>
-				<li>Working with <strong>Nodejs</strong> & <strong>Express.js</strong> in the backend</li>
-				<li>Working with <strong>Postgres</strong>, <strong>MongoDB</strong> & <strong>Redis</strong>.</li>
-				<li>Working with <strong>Astro</strong> & <strong>Vuejs</strong>' ecosystem in the frontend, with <strong>HTML</strong>, <strong>CSS</strong> and <strong>SCSS</strong>.</li>
-				<li>Going to Learn <strong>Go</strong>.</li>
-			</ul>
+      <ul>
+        <li>
+          Working mainly with <strong>JavaScript</strong> & <strong
+            >TypeScript</strong
+          >.
+        </li>
+        <li>
+          Working with <strong>Nodejs</strong> & <strong>Express.js</strong> in
+          the backend
+        </li>
+        <li>
+          Working with <strong>Postgres</strong>, <strong>MongoDB</strong> & <strong
+            >Redis</strong
+          >.
+        </li>
+        <li>
+          Working with <strong>Astro</strong> & <strong>Vuejs</strong>'
+          ecosystem in the frontend, with <strong>HTML</strong>, <strong
+            >CSS</strong
+          > and <strong>SCSS</strong>.
+        </li>
+        <li>Going to Learn <strong>Go</strong>.</li>
+      </ul>
 
-			<ContactInfo >
-				<a class="social-info" slot="resume"  rel="Download resume" target="_blank"  href="https://raw.githubusercontent.com/M-Shrief/M-Shrief/main/Mohamed%20Shrief%20-%20Junior%20Backend%20%26%20Frontend%20developer.pdf">Resume</a>
-			</ContactInfo>
-		</section>
-		<section id="blogs">
-			<h2>Blogs</h2>
-			<ul>
-				<li><a class="blog" rel="blog" target="_blank" href="/blogs/mpa-vs-spa">Multi-Page Application (MPA) VS Single-Page Application (SPA)</a></li>
-			</ul>
-		</section>
-
-	</main>
+      <ContactInfo>
+        <a
+          id="resume"
+          class="social-info"
+          slot="resume"
+          rel="Download resume"
+          target="_blank"
+          href="https://raw.githubusercontent.com/M-Shrief/M-Shrief/main/Mohamed%20Shrief%20-%20Junior%20Backend%20%26%20Frontend%20developer.pdf"
+          >Resume</a
+        >
+      </ContactInfo>
+    </section>
+    <section id="blogs">
+      <h2>Blogs</h2>
+      <ul>
+        <li>
+          <a class="blog" rel="blog" target="_blank" href="/blogs/mpa-vs-spa"
+            >Multi-Page Application (MPA) VS Single-Page Application (SPA) <Badge type={'new'}>New</Badge></a
+          > 
+        </li>
+      </ul>
+    </section>
+  </main>
 </Layout>
 
 <style lang="scss">
-@import '../assets/mixins.scss';
-main {
-	padding: 0 2rem;
-	#summary {
-		padding-bottom:  2rem;
-		border-bottom: 1px solid var(--text1);
-		h1 {
-			font-size: 2rem;
-		}
-		ul {
-			li {
-				font-size: 1.2rem;
-			}
-		}
+  @import "../assets/mixins.scss";
+  main {
+    margin: 0 2rem;
+    #summary {
+      h1 {
+        font-size: 2rem;
+      }
+      ul {
+        li {
+          font-size: 1.2rem;
+        }
+      }
 
-		@include social-info;  
-	}
+      #resume {
+        background-color: var(--brand);
+        color: var(--text1-dark);
+      }
+      @include social-info;
+    }
 
-	#blogs {
-		.blog {
-			text-decoration: none;
-			font-size: 1.2rem;
-			color: var(--text-brand);
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-	}
-}
+    #blogs {
+      .blog {
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 550;
+        color: var(--brand);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 </style>

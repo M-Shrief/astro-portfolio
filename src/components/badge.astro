@@ -1,0 +1,64 @@
+---
+interface Props {
+  type: "info" | "tip" | "new" | "warning" | "danger";
+}
+
+const { type } = Astro.props;
+---
+
+<span class:list={["badge", type]}>
+  <slot />
+</span>
+
+<style>
+  .badge {
+    display: inline-block;
+    margin-left: 2px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 0 8px;
+    line-height: 18px;
+    font-size: 12px;
+    font-weight: 600;
+    transform: translateY(-2px);
+  }
+
+  h1 .badge,
+  h2 .badge,
+  h3 .badge,
+  h4 .badge,
+  h5 .badge,
+  h6 .badge {
+    vertical-align: top;
+  }
+
+  h2 .badge {
+    border-radius: 11px;
+    line-height: 20px;
+  }
+
+  .badge.info {
+    border-color: var(--text2);
+    color: var(--text1);
+    background-color: var(--surface2);
+  }
+
+  .badge.tip,
+  .badge.new {
+    border-color: #059669;
+    color: #10b981;
+    background-color: rgba(16, 185, 129, 0.05);
+  }
+
+  .badge.warning {
+    border-color: #b45309;
+    color: #d97706;
+    background-color: rgba(234, 179, 8, 0.05);
+  }
+
+  .badge.danger {
+    border-color: #e11d48;
+    color: #f43f5e;
+    background-color: rgba(244, 63, 94, 0.05);
+  }
+</style>

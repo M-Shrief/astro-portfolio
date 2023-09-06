@@ -2,7 +2,7 @@
   --brand: #003cb3;
   /* light */
   --text1-light: #3c3c43; /*#*/
-  /* --text2-light: #3c3c43; */
+  --text2-light: #27272b;
   --text-highlight-light: #161618;
   --surface1-light: #ffffff;
   --surface2-light: #f6f6f7;
@@ -72,6 +72,6 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background: var(--surface1);
+  background: var(--surface2);
   color: var(--text1);
 }
