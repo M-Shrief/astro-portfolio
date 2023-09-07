@@ -1,49 +1,58 @@
 ---
+// Layouts
 import Layout from "../layouts/Layout.astro";
+// Components
 import ContactInfo from "../components/contactInfo.astro";
 import Badge from "../components/badge.astro";
+//  assets
+import { Image } from 'astro:assets';
+import ShipImg from '../assets/images/ship.png';
 ---
 
 <Layout title="M. Shrief :: Home">
   <main>
     <section id="summary">
-      <h1>Mohamed Shrief - Junior Backend & Frontend Developer</h1>
+      <div>
+        <h1><span>Mohamed Shrief</span><br>Junior Backend & Frontend Developer</h1>
+        <ul>
+          <li>
+            Working mainly with <strong>JavaScript</strong> & <strong
+              >TypeScript</strong
+            >.
+          </li>
+          <li>
+            Working with <strong>Nodejs</strong> & <strong>Express.js</strong> in
+            the backend
+          </li>
+          <li>
+            Working with <strong>Postgres</strong>, <strong>MongoDB</strong> & <strong
+              >Redis</strong
+            >.
+          </li>
+          <li>
+            Working with <strong>Astro</strong> & <strong>Vuejs</strong>'
+            ecosystem in the frontend, with <strong>HTML</strong>, <strong
+              >CSS</strong
+            > and <strong>SCSS</strong>.
+          </li>
+          <li>Going to Learn <strong>Go</strong>.</li>
+        </ul>
+        <ContactInfo>
+          <a
+            id="resume"
+            class="social-info"
+            slot="resume"
+            rel="Download resume"
+            target="_blank"
+            href="https://raw.githubusercontent.com/M-Shrief/M-Shrief/main/Mohamed%20Shrief%20-%20Junior%20Backend%20%26%20Frontend%20developer.pdf"
+            >Resume</a
+          >
+        </ContactInfo>
+      </div>
 
-      <ul>
-        <li>
-          Working mainly with <strong>JavaScript</strong> & <strong
-            >TypeScript</strong
-          >.
-        </li>
-        <li>
-          Working with <strong>Nodejs</strong> & <strong>Express.js</strong> in
-          the backend
-        </li>
-        <li>
-          Working with <strong>Postgres</strong>, <strong>MongoDB</strong> & <strong
-            >Redis</strong
-          >.
-        </li>
-        <li>
-          Working with <strong>Astro</strong> & <strong>Vuejs</strong>'
-          ecosystem in the frontend, with <strong>HTML</strong>, <strong
-            >CSS</strong
-          > and <strong>SCSS</strong>.
-        </li>
-        <li>Going to Learn <strong>Go</strong>.</li>
-      </ul>
-
-      <ContactInfo>
-        <a
-          id="resume"
-          class="social-info"
-          slot="resume"
-          rel="Download resume"
-          target="_blank"
-          href="https://raw.githubusercontent.com/M-Shrief/M-Shrief/main/Mohamed%20Shrief%20-%20Junior%20Backend%20%26%20Frontend%20developer.pdf"
-          >Resume</a
-        >
-      </ContactInfo>
+      <Image src={ShipImg} alt="Sailing Frigate across seas of code."
+        width="480" height="480" decoding="async" loading="lazy" />
+     
     </section>
     <section id="blogs">
       <h2>Blogs</h2>
@@ -61,15 +70,26 @@ import Badge from "../components/badge.astro";
 <style lang="scss">
   @import "../assets/mixins.scss";
   main {
-    margin: 0 2rem;
+    width: 70%;
+    margin: 0 auto;
     #summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       h1 {
         font-size: 2rem;
+        span {
+          font-size: 3rem;
+        }
       }
       ul {
         li {
           font-size: 1.2rem;
         }
+      }
+
+      img {
+        border-radius: 1rem;
       }
 
       #resume {
