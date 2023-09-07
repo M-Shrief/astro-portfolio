@@ -19,8 +19,11 @@ import Footer from "../components/footer.astro";
         <h3>My Role: Frontend & Backend development, it have 2 versions:</h2>
             <ul id="adeeb-overview">
                 <li>“Adeeb أديب ” SSR with a REST API 
-                    ( <a href="https://github.com/M-Shrief/Adeeb_Astro_SSR" target="_blank" title="github repo">Frontend's repo</a> - 
-                    <a href="https://github.com/M-Shrief/Adeeb_ExpressTS_Postgres" target="_blank" title="github repo">Backend's repo</a> )
+                    ( 
+                        <a href="https://adeeb.m-shrief.tech" target="_blank" title="Live demo">Live Deployment</a> - 
+                        <a href="https://github.com/M-Shrief/Adeeb_Astro_SSR" target="_blank" title="github repo">Frontend's repo</a> - 
+                        <a href="https://github.com/M-Shrief/Adeeb_ExpressTS_Postgres" target="_blank" title="github repo">Backend's repo</a>
+                    )
                     <ul>
                         <li>Tech stack:
                             <ul>
@@ -84,26 +87,20 @@ main {
         font-size: 1.2rem;
     }
     #adeeb-overview {
+        font-size: 1.1rem;
         ul {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-
-            li  {
-                font-size: 1.05rem;
-            }
-
-           
+            padding: 0.5rem auto;
         }
     }
 
      a {
         text-decoration: none;
         text-decoration: underline; 
-        color: var(--text1);
+        font-weight: 600;
+        color: var(--brand);
         opacity: 0.8;
         &:hover {
             opacity: 1;
-            font-weight: 600;
         }
     }
 }
