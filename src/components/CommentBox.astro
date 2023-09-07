@@ -1,0 +1,43 @@
+---
+type Props = {
+  repo: string;
+};
+
+const { repo } = Astro.props;
+---
+
+<section id="comments-light" class="-ml-6">
+  <script
+    src="https://utteranc.es/client.js"
+    repo={repo}
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
+</section>
+
+<section id="comments-dark" class="-ml-6">
+  <script
+    src="https://utteranc.es/client.js"
+    repo={repo}
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</section>
+
+<style is:global>
+  [data-theme='light'] #comments-dark,
+  [data-theme='dark'] #comments-light {
+    display: none;
+    height: 0px;
+  }
+
+  [data-theme='light'] #comments-light,
+  [data-theme='dark'] #comments-dark {
+    display: block;
+    height: fit-content;
+  }
+</style>

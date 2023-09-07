@@ -82,6 +82,16 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
           <slot />
         </div>
       </article>
+      <section id="comments-light" class="-ml-6">
+        <script
+          src="https://utteranc.es/client.js"
+          repo={'M-Shrief/Adeeb_Astro_SSR'}
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async
+        ></script>
+      </section>
     </main>
     <Footer />
   </body>
