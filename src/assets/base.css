@@ -4,8 +4,8 @@
   --text1-light: #3c3c43; /*#*/
   --text2-light: #27272b;
   --text-highlight-light: #161618;
-  --surface1-light: #ffffff;
-  --surface2-light: #f6f6f7;
+  --surface1-light: #fffff5db;
+    --surface2-light: #ffffff;
 
   /* dark */
   --text1-dark: #fffff5db;
@@ -60,8 +60,8 @@
 
 * {
   /* Icons */
-  --icon-fill: var(--text1-dark);
-  --icon-fill-hover: var(--text-highlight-dark);
+  --icon-fill: var(--surface1-light);
+    --icon-fill-hover: var(--surface2-light);
 }
 
 html {
