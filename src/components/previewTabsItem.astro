@@ -1,91 +1,87 @@
 ---
-
 interface Props {
-    tabId: string;
-    label: string;
-    isChecked: boolean;
-    posterSrc: string;
-    videoSrc: string;
-
+  tabId: string;
+  label: string;
+  isChecked: boolean;
+  posterSrc: string;
+  videoSrc: string;
 }
 
 const { tabId, label, isChecked, posterSrc, videoSrc } = Astro.props;
 ---
 
 <div class="tab">
-    <input type="radio" id={tabId} checked={isChecked} name="tab-group">
-    <label for={tabId} >{label}</label>
-    <div class="content">
-      <slot/>
-      <video controls preload="metadata" playsinline
-        poster={posterSrc}>
-        <source src={videoSrc} type="video/mp4" />
-      </video>
-    </div>
+  <input type="radio" id={tabId} checked={isChecked} name="tab-group" />
+  <label for={tabId}>{label}</label>
+  <div class="content">
+    <slot />
+    <video controls preload="metadata" playsinline poster={posterSrc}>
+      <source src={videoSrc} type="video/mp4" />
+    </video>
+  </div>
 </div>
 
 <style lang="scss">
-.tab {
+  .tab {
     float: left;
-    padding-bottom: 4rem;
-    video {
-        width: 100%;
-        height: 90%;
-    }
 
     label {
-        border-color: var(--text1);
-        color: var(--text1);
-        background-color: var(--surface2);
-        padding: 10px;
-        margin-left: -1px;
-        position: relative;
-        left: 1px;
+      border-color: var(--text1);
+      color: var(--text1);
+      background-color: var(--surface1);
+      padding: 10px;
+      margin-left: -1px;
+      position: relative;
+      left: 1px;
     }
 
     .content {
-        position: absolute;
-        top: 1.5rem;
-        left: 0;
-        border-color: var(--text1);
-        color: var(--text1);
-        background: #161618;
-        right: 0;
-        bottom: 0;
-        padding: 0 1rem;
-        overflow: hidden;
+      position: absolute;
+      top: 1.5rem;
+      left: 0;
+      border-color: var(--text1);
+      color: var(--text1);
+      background: var(--surface1);
+      right: 0;
+      bottom: 0;
+      padding: 1rem;
+      overflow: hidden;
+      video {
+        width: 100%;
+        height: 85%;
+        padding-bottom: 2rem;
+      }
     }
+  }
 
-}
+  .tab [type="radio"] {
+    opacity: 0;
+  }
 
-.tab [type="radio"] {
-  opacity: 0;
-}
+  .content > * {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+  }
 
-.content>* {
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: all 0.5s ease;
-}
+  [type="radio"]:focus ~ label {
+    outline: 2px solid var(--brand);
+  }
 
-[type="radio"]:focus~label {
-  outline: 2px solid blue;
-}
+  [type="radio"]:checked ~ label {
+    border-color: var(--text1);
+    outline: none;
+    color: var(--text1);
+    background-color: var(--brand);
+    z-index: 2;
+  }
 
-[type="radio"]:checked~label {
-  border-color: var(--text1);
-  outline: none;
-  color: var(--text1);
-  background-color: var(--brand);
-  z-index: 2;
-}
+  [type="radio"]:checked ~ label ~ .content {
+    z-index: 1;
+  }
 
-[type="radio"]:checked~label~.content {
-  z-index: 1;
-}
-
-[type="radio"]:checked~label~.content>* {
-  opacity: 1;
-  transform: translateX(0);
-}
+  [type="radio"]:checked ~ label ~ .content > * {
+    opacity: 1;
+    transform: translateX(0);
+  }
 </style>
