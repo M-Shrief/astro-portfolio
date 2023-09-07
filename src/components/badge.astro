@@ -13,14 +13,13 @@ const { type } = Astro.props;
 <style>
   .badge {
     display: inline-block;
-    margin-left: 2px;
+    margin-left: 0.4rem;
     border: 1px solid transparent;
-    border-radius: 10px;
-    padding: 0 8px;
-    line-height: 18px;
-    font-size: 12px;
+    border-radius: 1rem;
+    padding: 0 0.5rem;
+    font-size: 0.7rem;
     font-weight: 600;
-    transform: translateY(-2px);
+    transform: translateY(-8px);
   }
 
   h1 .badge,
@@ -30,11 +29,6 @@ const { type } = Astro.props;
   h5 .badge,
   h6 .badge {
     vertical-align: top;
-  }
-
-  h2 .badge {
-    border-radius: 11px;
-    line-height: 20px;
   }
 
   .badge.info {
