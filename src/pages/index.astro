@@ -1,6 +1,6 @@
 ---
 // Layouts
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/MainLayout.astro";
 // Components
 import ContactInfo from "../components/contactInfo.astro";
 import Badge from "../components/badge.astro";
@@ -58,7 +58,7 @@ import ShipImg from '../assets/images/ship.png';
       <h2>Blogs</h2>
       <ul>
         <li>
-          <a class="blog" rel="blog" target="_blank" href="/blogs/mpa-vs-spa"
+          <a class="blog" rel="blog" target="_self" href="/blog/mpa-vs-spa"
             >Multi-Page Application (MPA) VS Single-Page Application (SPA) <Badge type={'new'}>New</Badge></a
           > 
         </li>
@@ -70,8 +70,6 @@ import ShipImg from '../assets/images/ship.png';
 <style lang="scss">
   @import "../assets/mixins.scss";
   main {
-    width: 70%;
-    margin: 0 auto;
     #summary {
       display: flex;
       justify-content: space-between;
@@ -101,13 +99,7 @@ import ShipImg from '../assets/images/ship.png';
 
     #blogs {
       .blog {
-        text-decoration: none;
-        font-size: 1.2rem;
-        font-weight: 550;
-        color: var(--brand);
-        &:hover {
-          text-decoration: underline;
-        }
+        @include blog-link
       }
     }
   }

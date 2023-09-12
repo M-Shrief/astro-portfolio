@@ -41,3 +41,14 @@ $breakpoint-xl: 1280px; // default development size
     }
   }
 }
+
+@mixin blog-link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 550;
+  color: var(--brand);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
