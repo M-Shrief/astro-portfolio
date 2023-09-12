@@ -1,0 +1,35 @@
+---
+import "../assets/base.css";
+import { ViewTransitions, fade } from "astro:transitions";
+import Header from "../components/header.astro";
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" transition:animate={fade({ duration: "0.4s" })}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Header />
+    <slot />
+  </body>
+</html>
+
+
+<style is:global>
+    main {
+      width: 80%;
+      margin: 0 auto;
+    }
+</style>

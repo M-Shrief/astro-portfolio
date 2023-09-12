@@ -1,4 +1,4 @@
-<button class="theme-toggle" id="theme-toggle" title="Toggles light & dark"
+<button class="theme-toggle" id="theme-toggle" title="Toggles light & dark themes"
   aria-label="auto" aria-live="polite">
   <svg class="sun-and-moon" aria-hidden="true" width="24" height="24"
     viewBox="0 0 24 24">
@@ -64,6 +64,7 @@
   // set early so no page flashes / CSS is made aware
   reflectPreference()
   
+  // ReflectPrefernce, and addEventListener on first page load
   window.onload = () => {
     // set on load so screen readers can see latest value on the button
     reflectPreference();
@@ -71,6 +72,15 @@
     // now this script can find and listen for clicks on the control
     document.querySelector('#theme-toggle')?.addEventListener('click', onClick)
   }
+
+
+  // ReflectPrefernce, and addEventListener on ViewTransition
+  document.addEventListener('astro:page-load', () => {
+    // set on load so screen readers can see latest value on the button
+    reflectPreference();
+    // now this script can find and listen for clicks on the control
+    document.querySelector('#theme-toggle')?.addEventListener('click', onClick)
+  });
   
   // sync with system changes
   window
@@ -78,7 +88,7 @@
     .addEventListener('change', ({ matches: isDark }) => {
       theme.value = isDark ? 'dark' : 'light'
       setPreference()
-    })
+  })
 </script>
   
 <style is:inline>
