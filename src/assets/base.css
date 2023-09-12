@@ -3,14 +3,12 @@
   /* light */
   --text1-light: #3c3c43; /*#*/
   --text2-light: #27272b;
-  --text-highlight-light: #161618;
-  --surface1-light: #fffff5db;
-    --surface2-light: #ffffff;
+  --surface1-light: #c5c5c5db;
+  --surface2-light: #fffff5db;
 
   /* dark */
   --text1-dark: #fffff5db;
   --text2-dark: #a1a7aa;
-  --text-highlight-dark: #ffffff;
   --surface1-dark:#1e1e20;
   --surface2-dark:#161618;
 }
@@ -21,7 +19,6 @@
   /* set defaults */
   --text1: var(--text1-light);
   --text2: var(--text2-light);
-  --text-highlight: var(--text-highlight-light);
   --surface1: var(--surface1-light);
   --surface2: var(--surface2-light);
 }
@@ -32,7 +29,6 @@
 
     --text1: var(--text1-dark);
     --text2: var(--text2-dark);
-    --text-highlight: var(--text-highlight-dark);
     --surface1: var(--surface1-dark);
     --surface2: var(--surface2-dark);
   }
@@ -43,7 +39,6 @@
 
   --text1: var(--text1-light);
   --text2: var(--text2-light);
-  --text-highlight: var(--text-highlight-light);
   --surface1: var(--surface1-light);
   --surface2: var(--surface2-light);
 }
@@ -53,7 +48,6 @@
 
   --text1: var(--text1-dark);
   --text2: var(--text2-dark);
-  --text-highlight: var(--text-highlight-dark);
   --surface1: var(--surface1-dark);
   --surface2: var(--surface2-dark);
 }
@@ -61,7 +55,7 @@
 * {
   /* Icons */
   --icon-fill: var(--surface1-light);
-    --icon-fill-hover: var(--surface2-light);
+  --icon-fill-hover: var(--surface2-light);
 }
 
 html {
