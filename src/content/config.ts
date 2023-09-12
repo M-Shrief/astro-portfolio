@@ -8,6 +8,7 @@ const blog = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		// Transform string to Date object
+		// val format = "21 Jan 2022"
 		pubDate: z
 			.string()
 			.or(z.date())

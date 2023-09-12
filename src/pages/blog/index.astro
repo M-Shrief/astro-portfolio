@@ -10,14 +10,18 @@ const posts = (await getCollection("blog")).sort(
 
 <Layout title="M. Shrief :: Blog">
   <main>
-    <section>
-      <ul>
+    <section >
+      <h2>Blogs</h2>
+      <p>My personal blog, where I talk about Frontend, Backend, state of the market and on</p>
+      <ul >
         {
           posts.map((post) => (
-            <li>
+            <li class="blog">
               <a href={`/blog/${post.slug}/`}>
-                {post.data.title}
+                <h4>{post.data.title}</h4>
               </a>
+              <p>{post.data.description}</p>
+              <span>{post.data.pubDate.toUTCString().slice(0, 16)}</span>
             </li>
           ))
         }
@@ -26,4 +30,36 @@ const posts = (await getCollection("blog")).sort(
   </main>
 </Layout>
 
+<style lang="scss">
+  @import "../../assets/mixins.scss";
+
+  ul {
+
+    .blog {
+      position: relative;
+      list-style: none;
+      padding: 0.5rem 1rem;
+      margin: 1rem auto;
+      border-radius: 1rem;
+      background-color: var(--surface1);
+      a {
+        @include blog-link
+      }
+      p {
+        text-decoration: none;
+        color: var(--text2);
+        padding-bottom: 0.2rem;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      span {
+        color: var(--text1);
+        position: absolute;
+        bottom: 0.5rem;
+        right: 1rem;
+      }
+    }
+  }
+</style>
 
