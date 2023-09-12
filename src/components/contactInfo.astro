@@ -8,17 +8,25 @@
 @include social-info;  
 </style>
 
-<script >
-    const buttons = document.querySelectorAll('.copy') as NodeListOf<HTMLButtonElement>;
-    
-    buttons.forEach(button => {
+<script>
+    async function copyValue(button: HTMLButtonElement) {
         button.addEventListener('click', async () => {
-        await navigator.clipboard.writeText(button.value);
-        const defaultText = button.innerText;
-        button.innerText = 'Copied';
-        setTimeout(() => {
-            button.innerText = defaultText;
-        }, 300)
-    });
+            await navigator.clipboard.writeText(button.value);
+            const defaultText = button.innerText;
+            button.innerText = 'Copied';
+            setTimeout(() => {
+                button.innerText = defaultText;
+            }, 300)
+        });
+    }
+
+    window.onload = () => {
+        const buttons = document.querySelectorAll('.copy') as NodeListOf<HTMLButtonElement>;
+        buttons.forEach(button => copyValue(button))
+    }
+
+    document.addEventListener('astro:page-load', () => {
+        const buttons = document.querySelectorAll('.copy') as NodeListOf<HTMLButtonElement>;
+        buttons.forEach(button => copyValue(button))
     })
 </script>
