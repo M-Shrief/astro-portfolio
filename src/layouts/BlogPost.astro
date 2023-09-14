@@ -17,32 +17,33 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props.data
 const headings = Astro.props.headings
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
   </head>
 
   <body>
     <Header />
     <main>
-      <article>
-        <div class="prose">
-          <div class="title">
-            <h1>{title}</h1>
-            <p>{pubDate}</p>
-            <hr />
-          </div>
-          <slot />
-        </div>
-      </article>
       <aside>
+        <h3>Table of Content</h3>
         {
           headings.map(head => (
-            <a href={`#${head.slug}`} style={`margin-left: ${head.depth}rem`}>
-              <p>{head.text} </p>
+            <a href={`#${head.slug}`} style={`margin-left: ${head.depth * 0.5}rem`}>
+              <p>{head.text}</p>
             </a>
           ))
         }
+        <span id="date">Published at: {pubDate.toUTCString().slice(0, 16)}</span>
       </aside>
+      <article>
+        <slot />
+      </article>
     </main>
     <CommentBox repo={'M-Shrief/site'} />
 
@@ -50,16 +51,60 @@ const headings = Astro.props.headings
   </body>
 </html>
 
-<style lang="scss">
-main {
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
-  aside {
+<style lang="scss" is:global>
+  main {
+    width: 95%;
+    margin: 1rem auto;
+    position: relative;
     display: flex;
-    flex-direction: column;
-    min-width: 20%;
+    justify-content: space-between;
+    overflow: hidden;
+    article {
+      p {
+        padding-left: 0.5rem;
+        font-size: 1.15rem;
+      }
+
+      li {
+        font-size: 1.1rem;
+      }
+
+      a {
+        text-decoration: underline;
+        font-weight: 600;
+        color: var(--text1);
+      }
+
+      code {
+        border-radius: 1rem;
+        padding: 1rem;
+        span {
+          padding: 0.5rem 0;
+          display: inline-block;
+          font-size: 1rem;
+        }
+      }
+    }
+    aside {
+      min-width: 15%;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      a, p {
+        margin: 0.1rem 0;
+        padding: 0.1rem 0;
+      }
+      a {
+        text-decoration: none;
+        color: var(--text1);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      #date {
+        margin-top: 2rem;
+        font-size: 1rem;
+      }
+    }
   }
-}
 </style>
