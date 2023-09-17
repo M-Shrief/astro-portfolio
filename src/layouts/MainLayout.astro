@@ -10,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" transition:animate={fade({ duration: "0.4s" })}>
+<html lang="en" >
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -20,16 +20,8 @@ const { title } = Astro.props;
     <title>{title}</title>
     <ViewTransitions />
   </head>
-  <body>
+  <body transition:animate={fade({ duration: "0.4s" })}>
     <Header />
     <slot />
   </body>
 </html>
-
-
-<style is:global>
-    main {
-      width: 80%;
-      margin: 0 auto;
-    }
-</style>

@@ -1,7 +1,9 @@
 ---
+import { ViewTransitions, fade,slide } from "astro:transitions";
 import type { CollectionEntry } from "astro:content";
+// Layout
+import MainLayout from "./MainLayout.astro";
 // Components
-import Header from "../components/header.astro";
 import Footer from "../components/footer.astro";
 import CommentBox from "../components/commentBox.astro";
 // Styles
@@ -17,41 +19,29 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props.data
 const headings = Astro.props.headings
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
-  </head>
+<MainLayout title="Blogs">
+  <main transition:name="blog" transition:animate={slide({duration: '0.4s'})}>
+    <aside>
+      <h3>Table of Content</h3>
+      {
+        headings.map(head => (
+          <a href={`#${head.slug}`} style={`margin-left: ${head.depth * 0.5}rem`}>
+            <p>{head.text}</p>
+          </a>
+        ))
+      }
+      <span id="date">Published at: {pubDate.toUTCString().slice(0, 16)}</span>
+    </aside>
+    <article>
+      <slot />
+    </article>
+  </main>
+  <CommentBox repo={'M-Shrief/site'} />
 
-  <body>
-    <Header />
-    <main>
-      <aside>
-        <h3>Table of Content</h3>
-        {
-          headings.map(head => (
-            <a href={`#${head.slug}`} style={`margin-left: ${head.depth * 0.5}rem`}>
-              <p>{head.text}</p>
-            </a>
-          ))
-        }
-        <span id="date">Published at: {pubDate.toUTCString().slice(0, 16)}</span>
-      </aside>
-      <article>
-        <slot />
-      </article>
-    </main>
-    <CommentBox repo={'M-Shrief/site'} />
+  <Footer />
+</MainLayout>
 
-    <Footer />
-  </body>
-</html>
-
-<style lang="scss" is:global>
+<style lang="scss" >
   main {
     width: 95%;
     margin: 1rem auto;

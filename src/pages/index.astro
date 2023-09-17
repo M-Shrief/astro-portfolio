@@ -54,7 +54,7 @@ import ShipImg from '../assets/images/ship.png';
         width="480" height="480" decoding="async" loading="lazy" />
      
     </section>
-    <section id="blogs">
+    <section id="blogs" transition:name="blogs">
       <h2>Blogs</h2>
       <ul>
         <li>
@@ -70,6 +70,10 @@ import ShipImg from '../assets/images/ship.png';
 <style lang="scss">
   @import "../assets/mixins.scss";
   main {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 1rem auto;
     #summary {
       display: flex;
       justify-content: space-between;
