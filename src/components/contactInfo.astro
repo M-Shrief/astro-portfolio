@@ -1,6 +1,6 @@
 <slot name="resume" />
-<button class="social-info copy" value="m.shrief.dev@proton.me">Mail</button>
-<button class="social-info copy" value="+201025331595">Phone</button>
+<button class="social-info copy" id="Mail" value="m.shrief.dev@proton.me">Mail</button>
+<button class="social-info copy" id="Phone" value="+201025331595">Phone</button>
 
 <style lang="scss">
 @import '../assets/mixins.scss';
@@ -12,10 +12,9 @@
     async function copyValue(button: HTMLButtonElement) {
         button.addEventListener('click', async () => {
             await navigator.clipboard.writeText(button.value);
-            const defaultText = button.innerText;
             button.innerText = 'Copied';
             setTimeout(() => {
-                button.innerText = defaultText;
+                button.innerText = button.id;
             }, 300)
         });
     }
