@@ -20,8 +20,8 @@ const headings = Astro.props.headings
 ---
 
 <MainLayout title="Blogs">
-  <main transition:name="blog" transition:animate={slide({duration: '0.4s'})}>
-    <aside>
+  <main id="blog" transition:name="blog" transition:animate={slide({duration: '0.4s'})}>
+    <aside role="navigation">
       <h3>Table of Content</h3>
       {
         headings.map(head => (
@@ -41,22 +41,25 @@ const headings = Astro.props.headings
   <Footer />
 </MainLayout>
 
-<style lang="scss" >
-  main {
+<style lang="scss" is:global>
+  #blog {
     width: 95%;
-    margin: 1rem auto;
+    margin: 0rem auto;
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     overflow: hidden;
     article {
+      width: 60%;
+      margin: 1rem auto;
       p {
         padding-left: 0.5rem;
-        font-size: 1.15rem;
+        font-size: 1.2rem;
       }
 
       li {
         font-size: 1.1rem;
+        margin: 0.3rem auto;
       }
 
       a {
