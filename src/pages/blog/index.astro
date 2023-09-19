@@ -15,7 +15,7 @@ const posts = (await getCollection("blog")).sort(
       <p>My personal blog, where I talk about Frontend, Backend, state of the market and on</p>
       <ul >
         {
-          posts.map((post) => (
+          posts.filter(post => post.data.isDraft !== true).map((post) => (
             <li class="blog">
               <a href={`/blog/${post.slug}/`}>
                 <h4>{post.data.title}</h4>
