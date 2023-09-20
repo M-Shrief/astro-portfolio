@@ -8,7 +8,7 @@ import Footer from "../components/footer.astro";
 
 <Layout title="M. Shrief :: Projecs" description="My projects as a Backend & Frontend Developer, working mainly with JavaScript & TypeScript, using Vuejs, Astro, Nodejs with Postgres, MongoDB and Redis">
     <main>
-        <h1>Projects: “Adeeb أديب” (personal project)</h1>
+        <h1>Projects: “Adeeb أديب”</h1>
         <p>It's concerned with Arabic literature. It assumes a business model that enables
         you to order a specific piece of literature to be printed with especial colors
         and font. Then it'll be delivered to the customer, with the ability for the
@@ -74,9 +74,10 @@ import Footer from "../components/footer.astro";
 </Layout>
 
 <style lang="scss">
+@import "../assets/mixins.scss";
 main {
     width: 80%;
-      margin: 0 auto;
+    margin: 0 auto;
 
     h1 {
         font-size: 2rem;
@@ -84,11 +85,28 @@ main {
     p {
         font-size: 1.2rem;
     }
+    @include mQ($breakpoint-sm) {
+        width: 95%;
+        h1 {
+            font-size: 1.2rem;
+        }
+        h3 {
+            font-size:1rem
+        }
+        p {
+            font-size:1rem;
+        }
+    }
+
     #adeeb-overview {
         font-size: 1.15rem;
-        ul {
-            li {
-                margin: 0.3rem auto;
+        ul li {
+            margin: 0.3rem auto;
+        }
+        @include mQ($breakpoint-sm) {
+            font-size: 0.8rem;
+            ul li {
+                margin: 0.1rem auto;
             }
         }
     }

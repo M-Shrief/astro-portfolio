@@ -35,11 +35,17 @@ import PreviewTabsItem from './previewTabsItem.astro';
   
   
 <style lang="scss" >
+@import "../assets/mixins.scss";
 .tabs {
     position: relative;
     min-height: 45rem;
     clear: both;
     width: 80%;
     margin: 1rem  auto; 
+    @include mQ($breakpoint-sm) {
+        min-height:20rem;
+        width: 95%;
+        margin: 0.5rem auto;
+    }
 }  
 </style>
