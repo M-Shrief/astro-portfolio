@@ -39,6 +39,11 @@ $breakpoint-xl: 1280px; // default development size
       text-decoration: underline;
       transform: scale(0.95);
     }
+    @include mQ($breakpoint-sm) {
+      padding: 0.2rem 0.5rem;
+      margin: 0 0.1rem;
+      font-size: 0.8rem;
+    }
   }
 }
 
@@ -50,5 +55,8 @@ $breakpoint-xl: 1280px; // default development size
 
   &:hover {
     text-decoration: underline;
+  }
+  @include mQ($breakpoint-sm) {
+    font-size: 0.8rem;
   }
 }
