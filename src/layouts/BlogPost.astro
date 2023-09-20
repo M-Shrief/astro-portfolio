@@ -42,6 +42,8 @@ const headings = Astro.props.headings
 </MainLayout>
 
 <style lang="scss" is:global>
+  @import "../assets/mixins.scss";
+
   #blog {
     width: 95%;
     margin: 0rem auto;
@@ -49,17 +51,32 @@ const headings = Astro.props.headings
     display: flex;
     justify-content: space-around;
     overflow: hidden;
+    @include mQ($breakpoint-md) {
+      flex-direction: column;
+    }
     article {
       width: 60%;
       margin: 1rem auto;
+      @include mQ($breakpoint-md) {
+        width: 95%;
+      }
+
       p {
         padding-left: 0.5rem;
         font-size: 1.2rem;
+        @include mQ($breakpoint-sm) {
+          padding-left: 0.2rem;
+          font-size: 0.8rem;
+        }
       }
 
       li {
         font-size: 1.1rem;
         margin: 0.3rem auto;
+        @include mQ($breakpoint-sm) {
+          font-size: 0.8rem;
+          margin: 0.1rem auto;
+        }
       }
 
       a {
@@ -76,6 +93,13 @@ const headings = Astro.props.headings
           display: inline-block;
           font-size: 1rem;
         }
+        @include mQ($breakpoint-sm) {
+          padding: 0.5rem;
+          span {
+            padding: 0.2rem 0;
+            font-size:0.6rem;
+          }
+        }
       }
     }
     aside {
@@ -83,9 +107,19 @@ const headings = Astro.props.headings
       display: flex;
       flex-direction: column;
       align-content: center;
+      @include mQ($breakpoint-md) {
+        margin-left: 1rem;
+      }
       a, p {
         margin: 0.1rem 0;
         padding: 0.1rem 0;
+        @include mQ($breakpoint-md) {
+          font-size:1rem;
+        }
+
+        @include mQ($breakpoint-sm) {
+          font-size:0.8rem;
+        }
       }
       a {
         text-decoration: none;
@@ -97,6 +131,14 @@ const headings = Astro.props.headings
       #date {
         margin-top: 2rem;
         font-size: 1rem;
+        @include mQ($breakpoint-md) {
+          margin-top: 1.5rem;
+          font-size:0.8rem;
+        }
+        @include mQ($breakpoint-sm) {
+          margin-top: 1rem;
+          font-size:0.6rem;
+        }
       }
     }
   }

@@ -11,7 +11,7 @@ const posts = (await getCollection("blog")).sort(
 <Layout title="M. Shrief :: Blog" description="Blogs about Web development in the Backend & Frontend.">
   <main>
     <section >
-      <h2>Blogs</h2>
+      <h1>Blogs</h2>
       <p>My personal blog, where I talk about Frontend, Backend, state of the market and on</p>
       <ul >
         {
@@ -35,9 +35,14 @@ const posts = (await getCollection("blog")).sort(
   main {
     width: 80%;
     margin: 1rem auto;
+    @include mQ($breakpoint-sm) {
+      width: 95%;
+      h1 {
+        font-size: 1.4rem;
+      }
+    }
   }
   ul {
-
     .blog {
       position: relative;
       list-style: none;
@@ -45,6 +50,10 @@ const posts = (await getCollection("blog")).sort(
       margin: 1rem auto;
       border-radius: 1rem;
       background-color: var(--surface1);
+      @include mQ($breakpoint-sm) {
+        padding: 0.2rem 0.5rem;
+        margin: 0.5rem auto;
+      }
       a {
         @include blog-link
       }
@@ -55,12 +64,20 @@ const posts = (await getCollection("blog")).sort(
         &:hover {
           text-decoration: none;
         }
+        @include mQ($breakpoint-sm) {
+          font-size:0.8rem;
+        }
       }
       span {
         color: var(--text1);
         position: absolute;
         bottom: 0.5rem;
         right: 1rem;
+        @include mQ($breakpoint-sm) {
+          bottom: 0.2rem;
+          right: 0.5rem;
+          font-size:0.6rem;
+        }
       }
     }
   }

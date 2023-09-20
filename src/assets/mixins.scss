@@ -41,7 +41,6 @@ $breakpoint-xl: 1280px; // default development size
     }
     @include mQ($breakpoint-sm) {
       padding: 0.2rem 0.5rem;
-      margin: 0 0.1rem;
       font-size: 0.8rem;
     }
   }
