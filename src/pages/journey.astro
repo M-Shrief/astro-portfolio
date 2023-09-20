@@ -48,17 +48,28 @@ import Footer from "../components/footer.astro";
 </Layout>
 
 <style lang="scss">
-    main {
-        width: 80%;
-        margin: 0 auto;
+@import "../assets/mixins.scss";
+main {
+    width: 80%;
+    margin: 0 auto;
 
-        h1, h2 {
-            text-decoration: underline;
+    p, li {
+        font-size: 1.2rem;
+        margin: 0.3rem auto;
+    }
+
+    @include mQ($breakpoint-sm) {
+        width: 95%;
+        h1 {
+            font-size:1.4rem;
         }
-
+        h2 {
+            font-size:1.2rem;
+        }
         p, li {
-            font-size: 1.2rem;
-            margin: 0.3rem auto;
+            font-size:1rem;
+            margin: 0.1rem auto;
         }
     }
+}
 </style>
