@@ -42,10 +42,13 @@ import PreviewTabsItem from './previewTabsItem.astro';
     clear: both;
     width: 80%;
     margin: 1rem  auto; 
-    @include mQ($breakpoint-sm) {
-        min-height:20rem;
+    @include mQ($breakpoint-md) {
+        min-height:35rem;
         width: 95%;
         margin: 0.5rem auto;
+    }
+    @include mQ($breakpoint-sm) {
+        min-height:20rem;
     }
 }  
 </style>
