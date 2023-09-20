@@ -19,7 +19,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props.data
 const headings = Astro.props.headings
 ---
 
-<MainLayout title="Blogs">
+<MainLayout title={title} description={description}>
   <main id="blog" transition:name="blog" transition:animate={slide({duration: '0.4s'})}>
     <aside role="navigation">
       <h3>Table of Content</h3>

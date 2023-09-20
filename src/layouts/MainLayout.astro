@@ -3,21 +3,40 @@ import "../assets/base.css";
 import { ViewTransitions, fade } from "astro:transitions";
 import Header from "../components/header.astro";
 interface Props {
-  title: string;
+  title: string; // Recommended length: 150 - 160 characters 
+  description: string; // Recommended dimension: 1200 x 630 pixels 
+  image?: string; // Recommended dimension: 1200 x 630 pixels
 }
 
-const { title } = Astro.props;
+const { title, description, image } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" >
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/wheel96.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    
+    <!-- Meta Tags Generated via https://opengraph.dev -->
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://m-shrief.tech">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>    
+    <meta property="og:image" content={image}>  
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="m-shrief.tech">
+    <meta property="twitter:url" content="https://m-shrief.tech">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content={image}>
+
     <ViewTransitions />
   </head>
   <body transition:animate={fade({ duration: "0.4s" })}>
