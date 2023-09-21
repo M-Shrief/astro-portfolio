@@ -103,7 +103,7 @@ main {
         h2 {
             font-size:1.5rem;
         }
-        a, p {
+        p {
             font-size: 1.2rem;
         }
     }
@@ -116,13 +116,16 @@ main {
         h2, p {
             font-size:1rem;
         }
-        a {
-            font-size: 0.8rem;
-        }
     }
 
     .project-links {
-        // display: inline;
+        font-size: 1.2rem;
+        @include mQ($breakpoint-md) {
+            font-size:1rem;
+        }
+        @include mQ($breakpoint-sm) {
+            font-size:0.8rem;
+        }
         a {
             text-decoration: none;
             font-weight: 600;
@@ -147,7 +150,5 @@ main {
             }
         }
     }
-
-    .project-preview {}
 }
 </style>
