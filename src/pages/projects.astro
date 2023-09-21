@@ -15,58 +15,69 @@ import Footer from "../components/footer.astro";
         customer to follow up the process. And for special customers, it provides them
         with the ability to make bulk orders fast and easy. And if they’re willing to
         signup, they can review all of their past orders.</p>
-        <p><strong>My Role: Frontend & Backend development, the project have 2 versions:</strong></p>
+        <p><b>My Role: Frontend & Backend development, the project have 2 versions:</b></p>
 
-        <h2>“Adeeb أديب” SSR with a REST API</h2>
-        ( 
-            <a href="https://adeeb.m-shrief.tech" target="_blank" title="Live demo">Live Deployment</a> - 
-            <a href="https://github.com/M-Shrief/Adeeb_Astro_SSR" target="_blank" title="github repo">Frontend's repo</a> - 
-            <a href="https://github.com/M-Shrief/Adeeb_ExpressTS_Postgres" target="_blank" title="github repo">Backend's repo</a>
-        )
-        <ul class="adeeb-overview">
-            <li>Tech stack:
-                <ul>
-                    <li>TypeScript with HTML & CSS</li>
-                    <li>Astro & Vuejs</li>
-                    <li>Nodejs & Express.js</li>
-                    <li>Postgres & TypeORM with Redis</li>
-                </ul>
-            </li>
-            <li>Characteristics:
-                <ul>
-                    <li>JWT authentication & authorization</li>
-                    <li>Data validation with vee-validate & Yup</li>
-                    <li>Dark/Light Theme</li>
-                    <li>API tests with Mocha & Chai.</li>
-                    <li>Using PM2 for process management.</li>
-                </ul>
-            </li>
-        </ul>
 
-        <PreviewTabsList/>
+        <section>
+            <h2>“Adeeb أديب” Astro & Vuejs SSR with a Nodejs REST API with Postgres and Redis</h2>
+            <div class="project-links">
+                Links:
+                <a href="https://adeeb.m-shrief.tech" target="_blank" title="Live demo">Live Deployment</a> - 
+                <a href="https://github.com/M-Shrief/Adeeb_Astro_SSR" target="_blank" title="github repo">Frontend's repo</a> - 
+                <a href="https://github.com/M-Shrief/Adeeb_ExpressTS_Postgres" target="_blank" title="github repo">Backend's repo</a>
+            </div>
+            <ul class="project-overview">
+                <li>Tech stack:
+                    <ul>
+                        <li>TypeScript with HTML & SCSS</li>
+                        <li>Astro & Vuejs</li>
+                        <li>Nodejs & Express.js</li>
+                        <li>Postgres & TypeORM with Redis</li>
+                    </ul>
+                </li>
+                <li>Characteristics:
+                    <ul>
+                        <li>JWT authentication & authorization</li>
+                        <li>Data validation with vee-validate & Yup</li>
+                        <li>Dark/Light Theme</li>
+                        <li>API tests with Mocha & Chai, and Component testing with Cypress</li>
+                        <li>Using PM2 for process management.</li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="project-preview">
+                <p>Project preview:</p>
+                <PreviewTabsList/>
+            </div>
+        </section>
 
-        <h2>“Adeeb أديب ” SPA with a REST API</h2>
-        ( <a href="https://github.com/M-Shrief/Adeeb_Vue_TS" target="_blank" title="github repo">Frontend's repo</a> - 
-        <a href="https://github.com/M-Shrief/Adeeb_ExpressTS" target="_blank" title="github repo">Backend's repo</a> )
-        <ul class="adeeb-overview">
-            <li>Tech stack:
-                <ul>
-                    <li>TypeScript with HTML & CSS</li>
-                    <li>Vuejs with Pinia & vue-router</li>
-                    <li>Nodejs & Express.js</li>
-                    <li>MongoDB with Redis</li>
-                </ul>
-            </li>
-            <li>Characteristics:
-                <ul>
-                    <li>JWT authentication & authorization</li>
-                    <li>Data validation with vee-validate & Yup</li>
-                    <li>Dark/Light Theme</li>
-                    <li>API tests with Mocha & Chai, frontend component testing with Cypress.</li>
-                    <li>Using PM2 for process management.</li>
-                </ul>
-            </li>
-        </ul>
+        <section>
+            <h2>“Adeeb أديب ” Vuejs SPA with a Node REST API with MongoDB and Redis</h2>
+            <div class="project-links">
+                Links: 
+                <a href="https://github.com/M-Shrief/Adeeb_Vue_TS" target="_blank" title="github repo">Frontend's repo</a> - 
+                <a href="https://github.com/M-Shrief/Adeeb_ExpressTS" target="_blank" title="github repo">Backend's repo</a>
+            </div>
+            <ul class="project-overview">
+                <li>Tech stack:
+                    <ul>
+                        <li>TypeScript with HTML & SCSS</li>
+                        <li>Vuejs with Pinia & vue-router</li>
+                        <li>Nodejs & Express.js</li>
+                        <li>MongoDB with Redis</li>
+                    </ul>
+                </li>
+                <li>Characteristics:
+                    <ul>
+                        <li>JWT authentication & authorization</li>
+                        <li>Data validation with vee-validate & Yup</li>
+                        <li>Dark/Light Theme</li>
+                        <li>API tests with Mocha & Chai, and Component testing with Cypress</li>
+                        <li>Using PM2 for process management.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
     </main>
     <Footer/>
 </Layout>
@@ -82,17 +93,6 @@ main {
     }
     p {
         font-size: 1.2rem;
-    }
-
-    a {
-        text-decoration: none;
-        text-decoration: underline; 
-        font-weight: 600;
-        color: var(--brand);
-        opacity: 0.8;
-        &:hover {
-            opacity: 1;
-        }
     }
 
     @include mQ($breakpoint-md) {
@@ -121,7 +121,21 @@ main {
         }
     }
 
-    .adeeb-overview {
+    .project-links {
+        // display: inline;
+        a {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--brand);
+            margin: auto 0.2rem;
+            transition: scale 0.25;
+            &:hover {
+                text-decoration: underline; 
+            }
+        }
+    }
+
+    .project-overview {
         font-size: 1.15rem;
         ul li {
             margin: 0.3rem auto;
@@ -133,5 +147,7 @@ main {
             }
         }
     }
+
+    .project-preview {}
 }
 </style>
