@@ -17,7 +17,7 @@ import ShipImg from '../assets/images/ship.png';
         width="480" height="480" decoding="async" loading="lazy" />
 
       <div>
-        <h1>Mohamed Shrief<br><span>Junior Backend & Frontend Developer</span></h1>
+        <h1>Mohamed Shrief<br><span>Backend & Frontend Developer</span></h1>
         <ul>
           <li>
             Working mainly with <strong>JavaScript</strong> & <strong
@@ -41,7 +41,7 @@ import ShipImg from '../assets/images/ship.png';
           </li>
           <li>Going to Learn <strong>Go</strong>.</li>
         </ul>
-
+        <!-- <p id="open-to-work">I'm open to work full-time or as a freelancer</p> -->
         <a
         id="resume"
         class="social-info"
@@ -55,11 +55,16 @@ import ShipImg from '../assets/images/ship.png';
       </div>
     </section>
     <section id="blogs">
-      <h2>Blogs</h2>
+      <h2>Recent Blogs:</h2>
       <ul>
         <li>
+          <a class="blog" rel="blog" target="_self" href="/blog/astro"
+            >An introduction to Astro <Badge type={'new'}>New</Badge></a
+          > 
+        </li>
+        <li>
           <a class="blog" rel="blog" target="_self" href="/blog/mpa-vs-spa"
-            >Multi-Page Application VS Single-Page Application <Badge type={'new'}>New</Badge></a
+            >Multi-Page Application VS Single-Page Application</a
           > 
         </li>
       </ul>
@@ -125,12 +130,21 @@ import ShipImg from '../assets/images/ship.png';
           height: 240px;
         }
       }
+      #open-to-work {
+        font-size: 1.2rem;
+        @include mQ($breakpoint-sm) {
+          font-size: 1rem;
+        }
+      }
       @include social-info;
     }
 
     #blogs {
       h2 {
         font-size: 1.2rem;
+      }
+      li {
+        margin: 0.5rem auto;
       }
       .blog {
         @include blog-link

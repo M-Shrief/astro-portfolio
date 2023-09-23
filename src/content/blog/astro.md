@@ -1,7 +1,7 @@
 ---
 title: 'An introduction to Astro '
 description: "Breaking Astro main conceptes and advantages, and it's imapct on developers and the market, in my view"
-pubDate: '12 Aug 2023'
+pubDate: '23 Sep 2023'
 heroImage: '/blog-placeholder-3.jpg'
 relatedPosts: 
 - signals
