@@ -8,7 +8,7 @@ relatedPosts:
 - mpa-vs-spa
 ---
 
-Nowaday in the frontend sphere, it's almost required to work in a _Meta* framework_ that gives you _more features_, even if you doesn't need it because of a technical problem, It's needed because you're pushed to use it!
+Nowaday in the frontend sphere, it's almost required to work in a _Meta framework_ that gives you _more features_, even if you doesn't need it because of a technical problem, It's needed because you're pushed to use it!
 
 All developers/Businesses try to use big and sophisticated technologies to get hired or to market themselves, even if it doesn't help them reaching their goal, if not the opposite.
 
@@ -16,9 +16,9 @@ Now, there's a soloution for that, that gives what you need, only when you need 
 
 # What's Astro?
 
-Astro is an all-in-on web framework that scales in complexity with you as a business or a developer, it's not like a _Meta_ framework but a platform a base you start from. Rather than choosing a framework, and gets surprised after knowing its disadvantages then trying to solve this problems with other solutions.
+Astro is an all-in-on web framework that scales in complexity with you as a business or a developer, it's not like a _Meta_ framework but a **platform**, a base you start from. Rather being pushed to use a framework, and getting surprised after knowing its disadvantages, with Astro, you can scale its complexity when you actually need it.
 
-Astro makes you make this tradeoffs with awareness, only where you need to make this tradeoffs. Astro uses **Islands architecture** to make only the parts you want as reactive in the time you want it to be, rather than making the whole site reactive like SPAs -- engineering wise that's feels better.
+Astro makes you make this tradeoffs with awareness, only where you need to make this tradeoffs with **Islands architecture** to make only the parts you want as reactive in the time you want it to be, rather than making the whole site reactive like SPAs -- engineering wise that's feels better.
 
 Plus, it's **Server-first API Design**, Astro leverages server-side rendering over client-side rendering as much as possible to move expensive hydration off of your users' devices.
 
@@ -32,19 +32,13 @@ Islands are interactive UI components on an otherwise static page of HTML. Multi
 
 In Astro, you can use any supported UI framework to render islands in the browser. This is known as **partial** or **selective hydration**. Astro leverages this technique behind the scenes, powering your islands automatically.
 
-### How Do Islands Work in Astro?
-
-Astro generates every website with zero client-side JavaScript, by default. When using any UI framework, Astro will atomatically render it to HTML ahead of time and then strip out all of the JavaScript for performance.
-
-Sometimes, client-side JavaScript is required for creating interactive UI, With Astro instead of forcing your entire page to become an SPA, Astro enable you to make an islolated & interactive island.
-
 ### What are the benefits of Islands?
 
 The most obvious benefit is performance: the majority of your website is converted to fast, static HTML and JavaScript is only loaded for the individual components that need it. JavaScript is one of the slowest assets that you can load per-byte, so every byte counts.
 
 Another benefit is parallel loading. The low-priority island doesn’t need to block the high-priority island. The two load in parallel and hydrate in isolation.
 
-Even better, you can tell Astro exactly how and when to render each component with client directives. If that component is really expensive to load, you can attach a special client directive that tells Astro to only load the carousel when it becomes visible on the page. If the user never sees it, it never loads.
+Even better, you can tell Astro exactly how and when to render each component with client directives. If that component is really expensive to load, you can attach a special client directive that tells Astro to only load it when it becomes visible on the page. If the user never sees it, it never loads.
 
 In Astro, it’s up to you as the developer to explicitly tell Astro which components on the page need to also run in the browser. Astro will only hydrate exactly what’s needed on the page and leave the rest of your site as static HTML.
 
@@ -55,9 +49,9 @@ As previously said, with Astro you'll only scale your website complexity as you 
 
 Beside you'll not lose any core business values like SEO & performance, you can't just ignore these core values in the market, except in special cases. But if you choose a SPA framework like _React_, you'll need to solve these things by adding more complexity with something like _Nextjs_ or a plugin, and this things are great but if you don't actually need them, they're wasting time and money. 
 
-And you can achieve great user experience with features like **ViewTransitions**, which take advantage of the browser APIs to give smooth transition between your pages without needing a JavaScript Code.
+And you can achieve great user experience with features like **ViewTransitions**, which take advantage of the browser APIs to give smooth transition between your pages without needing to convert your site to a SPA only for that thing.
 
-Because Astro is UI-Agnostic, you can use it as a base to fix multiple business problems in term of migrations, staffing, elemenating some costs and more. because you can combine different frameworks easily.
+Because Astro is UI-Agnostic, you can use it as a base to fix multiple business problems in term of migrations, staffing, elemenating some costs and more. You can combine different frameworks easily, solve problems and move on for your core goal.
 
 ## Astro for Developers
 
@@ -65,24 +59,19 @@ Astro is accessible to every web developer, regardless of skill level or past ex
 
 It have top tooling CLI to customize your project, easily integrate TypeScript, TailwindCSSS, Partytown, and more without getting lost on some problem or wasting your time for a mistake that you don't see.
 
-Plus, Server-first rendering enable Astro to be less complex that other UI frameworks, you don’t need to worry about hooks, stale closures refs, observables and on by default, you only start with what you need then increamentally add on it.<br>
+Plus, Server-first rendering enable Astro to be less complex that other UI frameworks, you don’t need to worry about hooks, stale closures, refs, observables and on by default, you only start with what you need then increamentally add on it.<br>
 
 You can play with JavaScript in astro components to add reactivity manually or deal with browser's APIs like Seasions and Cookies, which will leads you to use client-directives to controll how and when to render/hydrate the component as an Island. That's not what we should do, we can combine a SPA framework like _React, Vue, Solid, Svelte, and many more_ to write reactive components in your astro site.
 
 The best thing, it can ease your choice of framework a bit, because you can easily try several frameworks in the same Astro project, combining them together, learning their concepts, you can even use their state management libraries like _Pinia_.<br>
-So again you learn step-by-step, and when you want you can use them as a full SPA.
+So again you learn step-by-step, and then if you need to, you can choose to migrate easily to use them as a full SPA.
 
-## Astro's Advantages and Disadvantages
+## Conclusion
 
-- Advantanges
-  - **Gradually learn frontend technologies**, without a great steeping curve in early on.
-  - **Maintain business values**, you don't get disconnected as a developer from core values like SEO & performance, and you take your own tradeoffs by yourself, not getting pushed for it.
-  - **UI agnostic** you can easily add UI framework with Astro's CLI to work with Vuejs, React, Solid Qwik and more, so most of companies can use it, and it can work with different developers taste.  
-  - **Edge-ready**, in this days, you can't develop your website or app without thinking about deployment, Astro can be deployed anywhere as a traditional static website to Nodejs (For SSR use-cases) to Netlify or Vercel or global edge runtime like Cloudflare.
-  - **Freelancing Potential**, for its performance and SEO, easy integrations with varios CMSs, you've alot of pre-made templates to learn from Astro's templates.<br>That's will help a lot of career shifters to get experience and motivation to be software developers.
+Astro's architecture provides alot of advantages, you maintain core values (e.g. performance, SEO and on), being UI agnostic make it easier to migrate and onboard on, it provide more options for management and the developers to reach their goal, and it's edge-ready to deploy anywhere.
 
+Astro's still have a little share on the market, but it's growing and getting big attention, especially because it benchmarks and integrations. And Astro have the potential to be used from companies & freelancers in small and big projects.
 
-Disadvantages: 
-  - Astro's share on the market is still low compared to something like React, you'll find more jobs requiring React than Astro, but still a lot of contenders so.<br>  Hopefully Astro's architecture, easy integrations, and its benchmarks should make a lot of people consider it as an option, now or later.
-  - I don't see other big issues, but it'll inivetably rise up.
+With more adaption, Astro'll have more issues, but I think they can take it far because it's divearse contribiuter from various ecosystems.
 
+Note: if you're a junior, maybe it's still better to learn React & TypeScript to land a job, but learning Astro surelly will give you a boost, especially because you'll think about somethings that gets ignored alot of time.
