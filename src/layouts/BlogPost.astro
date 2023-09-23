@@ -82,7 +82,7 @@ const headings = Astro.props.headings
       a {
         text-decoration: underline;
         font-weight: 600;
-        color: var(--text1);
+        color: var(--brand);
       }
 
       code {
@@ -113,6 +113,7 @@ const headings = Astro.props.headings
       a, p {
         margin: 0.1rem 0;
         padding: 0.1rem 0;
+        font-weight: 600;
         @include mQ($breakpoint-md) {
           font-size:1rem;
         }
@@ -123,7 +124,7 @@ const headings = Astro.props.headings
       }
       a {
         text-decoration: none;
-        color: var(--text1);
+        color: var(--brand);
         &:hover {
           text-decoration: underline;
         }
