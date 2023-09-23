@@ -66,18 +66,18 @@ So you need to evaluate your needs in terms of:
 
 - Domain's complexity.
 - Team structure, experience and how the communicate with each other.
-- Suitable performance & SEO for your goal.
-- UX & UI.
+- Suitable performance and SEO for your goal.
+- UX and UI.
 - Deployment strategy, and how it'll affect your website/application.
 
-In upcoming blogs, we'll discuss current approaches and their strategies to get the most of MPAs & SPAs for their business.
+In upcoming blogs, we'll discuss current approaches and their strategies to get the most of MPAs and SPAs for their business.
 
 # Resources
 
-- [Rich Harris on frameworks, the web, and the edge](https://www.youtube.com/watch?v=uXCipjbcQfM&pp=ygULcmljaCBoYXJyaXM%3D "On youtube")
+- [Rich Harris on frameworks, the web, and the edge](https://www.youtube.com/watch?v=uXCipjbcQfMandpp=ygULcmljaCBoYXJyaXM%3D "On youtube")
 
-- [Ryan Carniato, Islands, Partial Hydration, & JavaScript Frameworks](https://www.youtube.com/watch?v=Q0mXYbA86Qo "On youtube")
+- [Ryan Carniato, Islands, Partial Hydration, and JavaScript Frameworks](https://www.youtube.com/watch?v=Q0mXYbA86Qo "On youtube")
 
-- [Ryan Carniato & Fred K. Scott, Astro SSR.](https://www.youtube.com/watch?v=2ZEMb_H-LYE "On youtube")
+- [Ryan Carniato and Fred K. Scott, Astro SSR.](https://www.youtube.com/watch?v=2ZEMb_H-LYE "On youtube")
 
 - [Have Single-Page Apps Ruined the Web? | Transitional Apps with Rich Harris, NYTimes](https://www.youtube.com/watch?v=860d8usGC0o "On youtube")

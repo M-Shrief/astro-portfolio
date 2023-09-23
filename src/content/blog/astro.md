@@ -47,7 +47,7 @@ In Astro, it’s up to you as the developer to explicitly tell Astro which compo
 
 As previously said, with Astro you'll only scale your website complexity as you need, not getting your site full reactive with a SPA framework just because you need a little reactivity here and there, you just do what you need when you need.
 
-Beside you'll not lose any core business values like SEO & performance, you can't just ignore these core values in the market, except in special cases. But if you choose a SPA framework like _React_, you'll need to solve these things by adding more complexity with something like _Nextjs_ or a plugin, and this things are great but if you don't actually need them, they're wasting time and money. 
+Beside you'll not lose any core business values like SEO and performance, you can't just ignore these core values in the market, except in special cases. But if you choose a SPA framework like _React_, you'll need to solve these things by adding more complexity with something like _Nextjs_ or a plugin, and this things are great but if you don't actually need them, they're wasting time and money. 
 
 And you can achieve great user experience with features like **ViewTransitions**, which take advantage of the browser APIs to give smooth transition between your pages without needing to convert your site to a SPA only for that thing.
 
@@ -70,15 +70,15 @@ So again you learn step-by-step, and then if you need to, you can choose to migr
 
 Astro's architecture provides alot of advantages, you maintain core values (e.g. performance, SEO and on), being UI agnostic make it easier to migrate and onboard on, it provide more options for management and the developers to reach their goal, and it's edge-ready to deploy anywhere.
 
-Astro's still have a little share on the market, but it's growing and getting big attention, especially because it benchmarks and integrations. And Astro have the potential to be used from companies & freelancers in small and big projects.
+Astro's still have a little share on the market, but it's growing and getting big attention, especially because it benchmarks and integrations. And Astro have the potential to be used from companies and freelancers in small and big projects.
 
 With more adaption, Astro'll have more issues, but I think they can take it far because it's divearse contribiuter from various ecosystems.
 
-Note: if you're a junior, maybe it's still better to learn React & TypeScript to land a job, but learning Astro surelly will give you a boost, especially because you'll think about somethings that gets ignored alot of time.
+Note: if you're a junior, maybe it's still better to learn React and TypeScript to land a job, but learning Astro surelly will give you a boost, especially because you'll think about somethings that gets ignored alot of time.
 
 # Resources
 
 - [Astro's docs](https://docs.astro.build 'open the docs')
-- [Ryan Carniato & Fred Scot chat about Astro & SSR](https://www.youtube.com/watch?v=2ZEMb_H-LYE 'youtube video')
+- [Ryan Carniato and Fred Scot chat about Astro and SSR](https://www.youtube.com/watch?v=2ZEMb_H-LYE 'youtube video')
 - [Fred K. Schott: Astro, Open Source, and the Web](https://www.youtube.com/watch?v=9196iQJtK4s 'Youtube video')
 - [Theo t3 with Fred Schott, Astro version](https://youtu.be/CYuujJvgmns 'youtube video')
