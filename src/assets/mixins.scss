@@ -32,10 +32,8 @@ $breakpoint-xl: 1280px; // default development size
 
     color: var(--surface2);
     background-color: var(--text1);
-    transition: color 0.25s,  background-color 0.25s, scale 0.25;
+    transition: scale 0.25;
     &:hover {
-      color: var(--surface2);
-      background-color: var(--text1);
       text-decoration: underline;
       transform: scale(0.95);
     }
