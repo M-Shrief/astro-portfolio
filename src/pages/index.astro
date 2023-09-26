@@ -14,7 +14,7 @@ import ShipImg from '../assets/images/ship.png';
     <section id="summary">
 
       <Image src={ShipImg} alt="Sailing Frigate across seas of code."
-        width="480" height="480" decoding="async" loading="lazy" />
+        width="480" height="360" decoding="async" loading="lazy" />
 
       <div>
         <h1>Mohamed Shrief<br><span>Backend and Frontend Developer</span></h1>
@@ -34,10 +34,8 @@ import ShipImg from '../assets/images/ship.png';
             >.
           </li>
           <li>
-            Working with <strong>Astro</strong> and <strong>Vuejs</strong>'
-            ecosystem in the frontend, with <strong>HTML</strong>, <strong
-              >CSS</strong
-            > and <strong>SCSS</strong>.
+            Working with <strong>Astro</strong> and <strong>Vuejs</strong>
+            ecosystem in the frontend.
           </li>
           <li>Going to Learn <strong>Go</strong>.</li>
         </ul>
@@ -68,6 +66,34 @@ import ShipImg from '../assets/images/ship.png';
           > 
         </li>
       </ul>
+    </section>
+    <section id="characteristics">
+      <h2>I'm open to work full-time or as a <strong>freelancer</strong></h2>
+      <div class="grid">
+        <div id="employee">
+          <h3>As an Employee</h3>
+          <ul>
+            <li>Putting priorities first, and focus mainly to achieve main buisiness values</li>
+            <li>Working to be a multiplayer, covering and helping teammates in multiple responsibilites.</li>
+            <li>Refuse over-engineering, and work to remove unneccassery costs and complexity.</li>
+            <li>Working to open doors for scaling.</li>
+            <li>Focusing on delivering reliable products, with security in mind.</li>
+            <li>Learning about the wider scope of web development to be able to communicate easily and effectively with other teammates.</li>
+            <li>Achieving goals on its timeframe.</li>
+          </ul>
+        </div>
+        <div id="freelancer">
+          <h3>As a Freelancer</h3>
+          <ul>
+            <li>Focusing on your core goals and needs, so that I achieve the optimal solution for your case.</li>
+            <li>Focusing on delivering best value for money.</li>
+            <li>Achieve best performance and SEO.</li>
+            <li>Communicate clearly and honestly.</li>
+            <li>Delivering maintainable and extendable products, which can be easily maintained by another developer.</li>
+            <li>Meeting Deadlines.</li>
+          </ul>
+        </div>
+      </div>
     </section>
   </main>
 </Layout>
@@ -141,13 +167,54 @@ import ShipImg from '../assets/images/ship.png';
 
     #blogs {
       h2 {
-        font-size: 1.2rem;
+        @include mQ($breakpoint-sm) {
+          font-size: 1.2rem;
+        }
       }
       li {
         margin: 0.5rem auto;
       }
       .blog {
         @include blog-link
+      }
+    }
+
+    #characteristics {
+      margin: 1rem auto 2rem;
+      h2 {
+        @include mQ($breakpoint-sm) {
+          font-size:1.2rem
+        }
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin: 0.5rem;
+        @include mQ($breakpoint-md) {
+          grid-template-columns: 1fr
+        }
+      }
+      #freelancer, #employee {
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        background-color: var(--surface1);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+
+        h3 {
+          text-align: center;
+          @include mQ($breakpoint-sm) {
+            font-size:1rem;
+          }
+        }
+        ul li {
+          font-size: 1rem;
+          font-weight: 500;
+          margin: 0.3rem auto;
+          @include mQ($breakpoint-sm) {
+            font-size:0.8rem;
+          }
+        }
       }
     }
   }
