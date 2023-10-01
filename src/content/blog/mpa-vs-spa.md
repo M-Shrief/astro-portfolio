@@ -58,11 +58,9 @@ To match this support, MPAs leverage tools like Hotwire’s Turbo that mimic cli
 
 # Which is better?
 
-When comparing MPAs vs SPAs, there is no “better” or “worse” choice. It all comes down to tradeoffs.
+When comparing MPAs vs SPAs, there is no “better” or “worse” choice, you need to choose the easier and better approach to reach your core goals. Then you'll work to minimize and blind the pitfalls your choice, by other solutions, after you achieved your core goals
 
-Sometimes you need to prioritize MPAs because it makes the most sense for content-focused websites like blogs, landing pages/porfolios and a good portion of e-commerce sites. More stateful, interaction-heavy websites may benefit more from the app-like architecture that SPAs bring at the expense of first-load performance like a lot of e-commerce sites, social media and on.
-
-So you need to evaluate your needs in terms of:
+Most likely you'll need to evaluate your needs in terms of:
 
 - Domain's complexity.
 - Team structure, experience and how the communicate with each other.
