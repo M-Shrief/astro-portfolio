@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions, fade,slide } from "astro:transitions";
+import { slide } from "astro:transitions";
 import type { CollectionEntry } from "astro:content";
 // Layout
 import MainLayout from "./MainLayout.astro";
@@ -33,6 +33,7 @@ const headings = Astro.props.headings
       <span id="date">Published at: {pubDate.toUTCString().slice(0, 16)}</span>
     </aside>
     <article>
+      <h1 id="title">{title}</h1>
       <slot />
     </article>
   </main>
@@ -85,6 +86,12 @@ const headings = Astro.props.headings
         color: var(--brand);
       }
 
+      #title {
+        text-align: center;
+        padding: 1rem;
+        border-radius: 1rem; 
+      }
+
       code {
         border-radius: 1rem;
         padding: 1rem;
@@ -107,7 +114,9 @@ const headings = Astro.props.headings
       display: flex;
       flex-direction: column;
       align-content: center;
+      margin-top: 2rem;
       @include mQ($breakpoint-md) {
+        margin-top: 1rem;
         margin-left: 1rem;
       }
       a, p {
@@ -117,7 +126,6 @@ const headings = Astro.props.headings
         @include mQ($breakpoint-md) {
           font-size:1rem;
         }
-
         @include mQ($breakpoint-sm) {
           font-size:0.8rem;
         }
