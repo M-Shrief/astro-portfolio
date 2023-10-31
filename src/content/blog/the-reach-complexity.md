@@ -3,11 +3,8 @@ title: 'Reach of Complexity'
 description: "Why we need complex frameworks  like Nuxt even if we don't use them"
 isDraft: true
 pubDate: '12 Aug 2023'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: ''
 relatedPosts: 
-- mpa-vs-spa
-- astro
-- signals
 ---
 
 # The Reach of Complexity

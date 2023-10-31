@@ -2,10 +2,7 @@
 title: 'MPA VS SPA'
 description: 'Multi-Page Application (MPA) VS Single-Page Application (SPA)'
 pubDate: '12 Aug 2023'
-heroImage: '/blog-placeholder-3.jpg'
-relatedPosts: 
-- signals
-- astro
+heroImage: ''
 ---
 
 # Overview

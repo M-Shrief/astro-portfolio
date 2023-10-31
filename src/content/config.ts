@@ -20,7 +20,7 @@ const blog = defineCollection({
 			.transform((val) => (val ? new Date(val) : undefined)),
 		heroImage: z.string().optional(),
 		// Reference an array of related posts from the `blog` collection by `slug`
-		relatedPosts: z.array(reference('blog')),
+		// relatedPosts: z.array(reference('blog')),
 	}),
 });
 

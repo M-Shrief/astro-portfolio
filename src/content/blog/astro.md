@@ -2,10 +2,7 @@
 title: 'An introduction to Astro '
 description: "Breaking Astro main conceptes and advantages, and it's imapct on developers and the market, in my view"
 pubDate: '23 Sep 2023'
-heroImage: '/blog-placeholder-3.jpg'
-relatedPosts: 
-- signals
-- mpa-vs-spa
+heroImage: ''
 ---
 
 Nowaday in the frontend sphere, it's almost required to work in a _Meta framework_ that gives you _more features_, even if you doesn't need it because of a technical problem, It's needed because you're pushed to use it!
