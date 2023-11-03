@@ -12,7 +12,6 @@ const posts = (await getCollection("blog")).sort(
   <main>
     <section >
       <h1>Blogs</h2>
-      <p>My personal blog, where I talk about Frontend, Backend, state of the market and on</p>
       <ul >
         {
           posts.filter(post => post.data.isDraft !== true).map((post) => (
@@ -21,7 +20,7 @@ const posts = (await getCollection("blog")).sort(
                 <h4>{post.data.title}</h4>
               </a>
               <p>{post.data.description}</p>
-              <span>{post.data.pubDate.toUTCString().slice(0, 16)}</span>
+              <span>{post.data.pubDate.toLocaleDateString().slice(0, 16)}</span>
             </li>
           ))
         }
