@@ -15,7 +15,7 @@ type Props = {
   headings: MarkdownHeading[]
 };
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props.data;
+const { title, description, pubDate } = Astro.props.data;
 const headings = Astro.props.headings
 ---
 
@@ -96,7 +96,6 @@ const headings = Astro.props.headings
         border-radius: 1rem;
         padding: 1rem;
         span {
-          padding: 0.5rem 0;
           display: inline-block;
           font-size: 1rem;
         }
@@ -132,7 +131,6 @@ const headings = Astro.props.headings
       }
       a {
         text-decoration: none;
-        color: var(--brand);
         &:hover {
           text-decoration: underline;
         }
