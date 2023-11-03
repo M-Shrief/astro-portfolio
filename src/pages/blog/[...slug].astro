@@ -13,7 +13,6 @@ type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props.data;
 const { Content, headings } = await post.render();
 ---
 
