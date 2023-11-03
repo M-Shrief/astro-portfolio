@@ -1,6 +1,7 @@
 ---
 title: 'Migrate from Vuejs SPA to SSR with Astro - Dark/Light Themes'
 description: "We'll discus how to add Dark/Light Themes to Astro projects, using a native approach."
+isDraft: true
 pubDate: '01 Nov 2023'
 ---
 

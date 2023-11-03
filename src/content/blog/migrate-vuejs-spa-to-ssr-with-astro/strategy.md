@@ -11,9 +11,9 @@ This is an opinionated recommendation from my experience in the form of steps to
 Our main priority is to improve our site's SEO and performance. Normally our first target is our home page, and we'll try to get the best of Astro practices to prove its benefits for our team and directors.
 
 You'll use Astro file-based routing to create your main page (e.g., _src/pages/index.astro_).
-We'll copy all of its components into _src/components_ file, and we will modify them as needed for our state management.
+We'll copy all of its components into _src/components_ file, and we will modify them as needed for our [state management](/blog/migrate-vuejs-spa-to-ssr-with-astro/state-management/).
 
-We'll do our data fetching in Astro's frontmatter. Now, we'll import our components to our page, and customize which component will be static and which will be reactive for our needs by using Astro's **client-directives**.
+We'll do our data fetching in Astro's frontmatter. Now, we'll import our components to our page, and customize which component will be static and which will be reactive for our needs by using Astro's [client-directives](https://docs.astro.build/en/reference/directives-reference/#client-directives 'Astro docs').
 
 This is an example from my project "Adeeb أديب", you can look at it to get the picture:
 
@@ -164,3 +164,7 @@ You may decide that some pages don't need to be migrated because you don't need 
 
 That's a smooth way to migrate and achieve your business needs while proving Astro's benefits for your team and directors. And it'll not give your team a bad time, and it'll open a ton of choices to extend your website's capabilities.
 
+## Resources:
+
+- [Astro's client-directives](https://docs.astro.build/en/reference/directives-reference/#client-directives "Astro docs")
+- [Migrate from Vuejs SPA to SSR with Astro - State Management](http://localhost:4321/blog/migrate-vuejs-spa-to-ssr-with-astro/state-management/)
