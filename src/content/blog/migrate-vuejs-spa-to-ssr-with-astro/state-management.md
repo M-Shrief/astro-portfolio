@@ -304,6 +304,8 @@ Then we finished with my recommendation to use Vuejs Reactivity API because:
 - It's simple and stupid
 - Very easy to spy and mock in Unit testing and Component testing.
 
+You can see a real implementation with Vuejs Reactivity API in my project ["Adeeb" repo](https://github.com/M-Shrief/Adeeb_Astro_SSR "Adeeb's github repo") 
+
 ## Resources
 
 - [Nano Store](https://github.com/nanostores/nanostores "Nano Store's github repo").
