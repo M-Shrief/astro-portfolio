@@ -1,5 +1,4 @@
 <button class="social-info copy" id="Mail" value="m.shrief.dev@proton.me">Mail</button>
-<button class="social-info copy" id="Phone" value="+201025331595">Phone</button>
 
 <style lang="scss">
 @import '../assets/mixins.scss';
@@ -19,12 +18,12 @@
     }
 
     window.onload = () => {
-        const buttons = document.querySelectorAll('.copy') as NodeListOf<HTMLButtonElement>;
-        buttons.forEach(button => copyValue(button))
+        const button = document.querySelector('.copy') as HTMLButtonElement;
+        copyValue(button)
     }
 
     document.addEventListener('astro:page-load', () => {
-        const buttons = document.querySelectorAll('.copy') as NodeListOf<HTMLButtonElement>;
-        buttons.forEach(button => copyValue(button))
+        const button = document.querySelector('.copy') as HTMLButtonElement;
+        copyValue(button)
     })
 </script>
