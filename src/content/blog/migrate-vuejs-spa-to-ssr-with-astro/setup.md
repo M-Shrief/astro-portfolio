@@ -16,11 +16,11 @@ You'll find Hueston (Astro's Cli) helping you out. Choose the recommended skelet
 
 You'll have something like:
 
-- **/src**: Your file for project source code (components, pages, styles, etc.)
-- **/public**: Your file for non-code, unprocessed assets (fonts, icons, etc.)
+- **src**: for project source code (components, pages, styles, etc.)
+- **public**: for non-code, unprocessed assets (fonts, icons, etc.)
 - **package.json**
 - **astro.config.mjs**: Astro configuration file.
-- **tsconfig.json**: TypeScript configuration file. (Not a must, but recommended)
+- ...etc
 
 ## UI framework and SSR adapter
 
@@ -32,6 +32,7 @@ $ npx astro add vue node
 It'll add Vuejs integration, so we can use Vuejs and .vue files, the Nodejs integration is to serve the SSR website.
 
 ```js
+
 // astro.config.mjs
 export default defineConfig({
     // ................
@@ -46,14 +47,14 @@ export default defineConfig({
 });
 ```
 
-We need to choose our output stratege and adapter mode:
-- **output**: choose *hyprid* if the most of your website content is statice, choose *server* if most of it is dynamic
+We need to choose our output strategey and adapter mode:
+- **output**: choose *hyprid* if the most of your website content is static, choose *server* if most of it is dynamic
 - **adapter mode**: we'll choose *standalone* to ease our development, and it helps us to seperate our backend and frontend, so both can scale seperately, it's not a must still.
 
-In the **/src** file, we'll have three main files inside it:
-- **/components**: contains Astro & Vuejs components (common convention, not required).
-- **/layouts**: define the UI structure shared by one or more pages. (common convention, not required)
-- **/pages**: A special folder that defines your website pages and routes (required)
+In the **src** file, we'll have three main files inside it:
+- **components**: contains Astro & Vuejs components (common convention, not required).
+- **layouts**: define the UI structure shared by one or more pages. (common convention, not required)
+- **pages**: A special folder that defines your website pages and routes (required)
 
 ## Styling
 
@@ -66,6 +67,7 @@ $ npm install sass
 Then declare the style language in your Astro component:
 
 ```astro
+
 <style lang="scss">
 </style>
 ```
