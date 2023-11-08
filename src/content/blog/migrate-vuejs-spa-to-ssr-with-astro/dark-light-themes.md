@@ -2,7 +2,7 @@
 title: 'Migrate from Vuejs SPA to SSR with Astro - Dark/Light Themes'
 description: "We'll discus how to add Dark/Light Themes to Astro projects, using a native approach."
 isDraft: true
-pubDate: '01 Nov 2023'
+pubDate: '08 Nov 2023'
 ---
 
 As for myself, I use the suggested way to change color themes from **web.dev**, it's very simple and efficient, and it uses HTML, CSS and Native JavaScript and that means I can use it in any framework.
@@ -13,6 +13,7 @@ It's efficient, simple and stupid, and that's it.
 I take the suggested SVGs for [moon and sun](https://web.dev/patterns/theming/theme-switch?hl=en "web.dev - Theme Switch") and paste them simply:
 
 ```astro
+
 <!-- ThemeSwitch.astro -->
 <button class="theme-toggle" id="theme-toggle" title="Toggles light and dark themes"
   aria-label="auto" aria-live="polite">
@@ -46,6 +47,7 @@ If you're using ViewTransitions, you should notice that it work after the first 
 You need to add another listen for ViewTransitions event named: _"astro:page-load"_, so you'll add:
 
 ```astro
+
 <!-- ThemeSwitch.astro -->
 <script>
   // ReflectPrefernce, and addEventListener on ViewTransition
@@ -60,9 +62,77 @@ You need to add another listen for ViewTransitions event named: _"astro:page-loa
 
 ## CSS and Styling
 
-Now, put the recommended [CSS](https://web.dev/patterns/theming/theme-switch?hl=en#css "web.dev - Theme Switch CSS") in the style tag, and make sure you add the *is:inline* so the icon changes:
+Now, you need to declare your theme variables in a simple CSS file, so that it changes when the *color-scheme* changes then import it in your Layout:
+
+```css
+
+/* src/assets/base.css */
+* {
+  --brand: #003cb3;
+  /* light */
+  --text1-light: #3c3c43; /*#*/
+  --text2-light: #27272b;
+  --surface1-light: #c5c5c5db;
+  --surface2-light: #fffff5db;
+
+  /* dark */
+  --text1-dark: #fffff5db;
+  --text2-dark: #a1a7aa;
+  --surface1-dark:#1e1e20;
+  --surface2-dark:#161618;
+}
+
+:root {
+  color-scheme: light;
+
+  /* set defaults */
+  --text1: var(--text1-light);
+  --text2: var(--text2-light);
+  --surface1: var(--surface1-light);
+  --surface2: var(--surface2-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --text1: var(--text1-dark);
+    --text2: var(--text2-dark);
+    --surface1: var(--surface1-dark);
+    --surface2: var(--surface2-dark);
+  }
+}
+
+[color-scheme='light'] {
+  color-scheme: light;
+
+  --text1: var(--text1-light);
+  --text2: var(--text2-light);
+  --surface1: var(--surface1-light);
+  --surface2: var(--surface2-light);
+}
+
+[color-scheme='dark'] {
+  color-scheme: dark;
+
+  --text1: var(--text1-dark);
+  --text2: var(--text2-dark);
+  --surface1: var(--surface1-dark);
+  --surface2: var(--surface2-dark);
+}
+
+* {
+  /* Icons */
+  --icon-fill: var(#ffffffc4);
+  --icon-fill-hover: var(#ffffff);
+}
+
+```
+
+Now, put the recommended [CSS](https://web.dev/patterns/theming/theme-switch?hl=en#css "web.dev - Theme Switch CSS") in our Astro component, and make sure you add the *is:inline* so the icon changes:
 
 ```astro
+
 <!-- ThemeSwitch.astro -->
 <style is:inline>
 
@@ -76,6 +146,7 @@ Note: you don't need to use *open-props.easings*, if you don't want to.
 If you're using tailwind, make sure to change it's darkMode config:
 
 ```js
+
 // tailwind.config.cjs
 /** @type {import('tailwindcss').Config} */
 module.exports = {
