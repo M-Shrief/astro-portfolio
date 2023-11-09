@@ -80,4 +80,6 @@ $ npx astro add tailwind
 
 ## Resources
 
-- [Astro's Docs](https://docs.astro.build/ 'Documentation')
+- [Astro's Docs: Get Started](https://docs.astro.build/en/install/auto/ 'Documentation')
+- [Astro and Vuejs Integration](https://docs.astro.build/en/guides/integrations-guide/vue/ 'Documentation')
+- [Astro's Nodejs SSR Adapter](https://docs.astro.build/en/guides/integrations-guide/node/ 'Documentation')
