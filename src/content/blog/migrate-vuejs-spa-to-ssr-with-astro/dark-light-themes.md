@@ -1,8 +1,7 @@
 ---
 title: 'Migrate from Vuejs SPA to SSR with Astro - Dark/Light Themes'
 description: "We'll discus how to add Dark/Light Themes to Astro projects, using a native approach."
-isDraft: true
-pubDate: '08 Nov 2023'
+pubDate: '11 Nov 2023'
 ---
 
 As for myself, I use the suggested way to change color themes from **web.dev**, it's very simple and efficient, and it uses HTML, CSS and Native JavaScript and that means I can use it in any framework.
