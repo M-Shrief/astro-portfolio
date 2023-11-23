@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import mdx from "@astrojs/mdx";
-import prefetch from "@astrojs/prefetch";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
@@ -11,7 +10,10 @@ export default defineConfig({
       wrap: true // Enable word wrap to prevent horizontal scrolling
     }
   },
-
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'viewport'
+  },
   site: 'https://m-shriet.tech',
   integrations: [
     mdx(),
@@ -20,9 +22,5 @@ export default defineConfig({
       priority: 0.7,
       entryLimit: 100
     }),
-    prefetch({
-      selector: ["a[href^='/projects']", "a[href^='/blog']", "a[href^='/journey']"],
-      throttle: 1,
-    })
   ]
 });
