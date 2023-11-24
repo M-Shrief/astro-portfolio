@@ -3,7 +3,9 @@ import { getCollection } from "astro:content";
 // Layouts
 import Layout from "../../layouts/MainLayout.astro";
 
-const posts = (await getCollection("blog")).sort(
+const posts = (await getCollection("blog", ({data}) => {
+  return import.meta.env.PROD ? data.isDraft !== true : true;
+})).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() 
 );
 ---
@@ -14,7 +16,7 @@ const posts = (await getCollection("blog")).sort(
       <h1>Blogs</h2>
       <ul >
         {
-          posts.filter(post => post.data.isDraft !== true).map((post) => (
+          posts.map((post) => (
             <li class="blog">
               <a href={`/blog/${post.slug}/`}>
                 <h4>{post.data.title}</h4>
