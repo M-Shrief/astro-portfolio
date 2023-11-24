@@ -2,6 +2,8 @@
 title: 'Migrate from Vuejs SPA to SSR with Astro - Intro'
 description: "We'll take another route for migrating your Vuejs SPA with Astro instead of Nuxt, we'll discuss the difference between both, and why you should choose Astro instead."
 pubDate: '01 Nov 2023'
+categories: ["frontend"]
+tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
 ---
 
 ## Vuesjs SSR solutions

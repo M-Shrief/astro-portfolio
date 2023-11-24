@@ -2,6 +2,8 @@
 title: 'Migrate from Vuejs SPA to SSR with Astro - Setup'
 description: "Setting up our project's boilerplate and configuration"
 pubDate: '02 Nov 2023'
+categories: ["frontend"]
+tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
 ---
 
 ## Initial Boilerplate

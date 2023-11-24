@@ -2,6 +2,8 @@
 title: 'Migrate from Vuejs SPA to SSR with Astro - Rendering'
 description: "We'll discus how to control your pages and components rendering."
 pubDate: '9 Nov 2023'
+categories: ["frontend"]
+tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
 ---
 
 We'll discuss how we'll deal with our adapter's output strategy and how to control your pages and components rendering, but take note that I'll refer a lot to Astro's docs, because it's the original source of information.

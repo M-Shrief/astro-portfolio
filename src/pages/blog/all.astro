@@ -2,18 +2,55 @@
 import { getCollection } from "astro:content";
 // Layouts
 import Layout from "../../layouts/MainLayout.astro";
+// Utils
+import {getAllClassifications, getClassificationsList} from '../../utils/blog'
 
 const posts = (await getCollection("blog", ({data}) => {
   return import.meta.env.PROD ? data.isDraft !== true : true;
 })).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() 
 );
+
+const allCategories = await getClassificationsList("categories")
+const allBlogsCategories = await getAllClassifications("categories") 
+const allTags = await getClassificationsList("tags")
+const allBlogsTags = await getAllClassifications("tags")
+
 ---
 
 <Layout title="M. Shrief :: Blog" description="Blogs about Web development in the Backend and Frontend.">
   <main>
     <section >
       <h1>Blogs</h2>
+        
+        <h2>Tags</h2>
+        {
+          allTags.map((tag: any) => {
+            const count = allBlogsTags.filter(
+              (t: string) => t === tag
+            ).length;
+            return (
+              <p>
+              {tag}: {count}
+              </p>
+            );
+          })
+        }
+
+        <h2>Categories</h2>
+        {
+          allCategories.map((category: any) => {
+            const count = allBlogsCategories.filter(
+              (c: string) => c === category
+            ).length;
+            return (
+              <p>
+              {category}: {count}
+              </p>
+            );
+          })
+        }
+
       <ul >
         {
           posts.map((post) => (

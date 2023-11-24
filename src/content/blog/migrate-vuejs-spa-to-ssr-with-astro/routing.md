@@ -2,6 +2,8 @@
 title: 'Migrate from Vuejs SPA to SSR with Astro - Routing'
 description: "Taking a look at Astro's file-based routing, and how to use it to migrate a Vuejs SPA to an SSR, and how to force specific pages to be rendered as static or server-rendered, and guarding specific routes that need authentication."
 pubDate: '10 Nov 2023'
+categories: ["frontend"]
+tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
 ---
 
 In Vuejs, you'll a library like VueRouter to configure your routes and route-guards, but Astro uses a technique to configure your routes with conventions. Astro uses **file-based routing**, you create your pages in *src/pages* directory, and it maps the page to a route in a conventional way.
