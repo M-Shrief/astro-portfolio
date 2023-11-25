@@ -1,0 +1,89 @@
+---
+interface Props {
+    slug: string;
+    title: string;
+    description: string;
+    pubDate: Date;
+    tags: string[];
+    categories: string[];
+}
+const { slug, title ,description, pubDate, tags, categories } = Astro.props;
+
+---
+
+<li class="blog">
+    <h3>
+        <a href={`/blog/${slug}/`}>{title}</a>
+    </h3>
+    <p>{description}</p>
+    <span><a href=""></a></span>
+    <div class="taxonomies">
+    {
+        categories.map(category => (
+            <a class="taxonomy" href={`/blog/category/${category}`}>#{category}</a>
+        ))
+    }
+    {
+        tags.map(tag => (
+            <a class="taxonomy" href={`/blog/tag/${tag}`}>#{tag}</a>
+        ))
+    }
+    </div>
+    <span class="pubdate">{pubDate.toLocaleDateString().slice(0, 16)}</span>
+</li>
+
+<style lang="scss">
+@import "../assets/mixins.scss";
+
+.blog {
+    position: relative;
+    list-style: none;
+    padding: 0.5rem 1rem;
+    margin: 1rem auto;
+    border-radius: 1rem;
+    background-color: var(--surface1);
+    @include mQ($breakpoint-sm) {
+        padding: 0.2rem 0.5rem;
+        margin: 0.5rem auto;
+    }
+    #header {
+        margin: 5rem 0;
+    }
+    a {
+       @include blog-link
+    }
+    p {
+        text-decoration: none;
+        color: var(--text2);
+        padding-bottom: 0.2rem;
+        &:hover {
+            text-decoration: none;
+        }
+        @include mQ($breakpoint-sm) {
+            font-size:0.8rem;
+        }
+    }
+
+    .taxonomies {
+        display: flex;
+        flex-direction: row;
+        // direction: rtl;
+        .taxonomy {
+            font-size: 1rem;
+            margin-right: 0.3rem;
+        }
+    }
+
+    .pubdate {
+        color: var(--text1);
+        position: absolute;
+        bottom: 0.5rem;
+        right: 1rem;
+        @include mQ($breakpoint-sm) {
+            bottom: 0.2rem;
+            right: 0.5rem;
+            font-size:0.6rem;
+        }
+    }
+}
+</style>

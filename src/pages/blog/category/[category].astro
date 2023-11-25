@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 // Layouts
 import Layout from "../../../layouts/MainLayout.astro";
+// Components
+import BlogCard from "../../../components/blogCard.astro";
 // Utils
 import {getClassificationsList} from '../../../utils/blog'
 
@@ -32,19 +34,14 @@ const posts = (await getCollection("blog", ({data}) => {
 <Layout title="M. Shrief :: Blog" description="Blogs about Web development in the Backend and Frontend.">
     <main>
       <section >
-        <h1>Blogs</h2>
+        <h1>Blogs for #{category}</h2>
           
 
         <ul >
           {
             posts.map((post) => (
-              <li class="blog">
-                <a href={`/blog/${post.slug}/`}>
-                  <h4>{post.data.title}</h4>
-                </a>
-                <p>{post.data.description}</p>
-                <span>{post.data.pubDate.toLocaleDateString().slice(0, 16)}</span>
-              </li>
+            <BlogCard slug={post.slug} title={post.data.title} description={post.data.description}
+             pubDate={post.data.pubDate} tags={post.data.tags} categories={post.data.categories} />
             ))
           }
         </ul>

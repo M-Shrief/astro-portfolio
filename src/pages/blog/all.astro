@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 // Layouts
 import Layout from "../../layouts/MainLayout.astro";
+// Components
+import BlogCard from "../../components/blogCard.astro";
 // Utils
 import {getAllClassifications, getClassificationsList} from '../../utils/blog'
 
@@ -11,10 +13,10 @@ const posts = (await getCollection("blog", ({data}) => {
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() 
 );
 
-const allCategories = await getClassificationsList("categories")
-const allBlogsCategories = await getAllClassifications("categories") 
-const allTags = await getClassificationsList("tags")
-const allBlogsTags = await getAllClassifications("tags")
+// const allCategories = await getClassificationsList("categories")
+// const allBlogsCategories = await getAllClassifications("categories") 
+// const allTags = await getClassificationsList("tags")
+// const allBlogsTags = await getAllClassifications("tags")
 
 ---
 
@@ -22,45 +24,12 @@ const allBlogsTags = await getAllClassifications("tags")
   <main>
     <section >
       <h1>Blogs</h2>
-        
-        <h2>Tags</h2>
-        {
-          allTags.map((tag: any) => {
-            const count = allBlogsTags.filter(
-              (t: string) => t === tag
-            ).length;
-            return (
-              <p>
-              {tag}: {count}
-              </p>
-            );
-          })
-        }
-
-        <h2>Categories</h2>
-        {
-          allCategories.map((category: any) => {
-            const count = allBlogsCategories.filter(
-              (c: string) => c === category
-            ).length;
-            return (
-              <p>
-              {category}: {count}
-              </p>
-            );
-          })
-        }
 
       <ul >
         {
           posts.map((post) => (
-            <li class="blog">
-              <a href={`/blog/${post.slug}/`}>
-                <h4>{post.data.title}</h4>
-              </a>
-              <p>{post.data.description}</p>
-              <span>{post.data.pubDate.toLocaleDateString().slice(0, 16)}</span>
-            </li>
+            <BlogCard slug={post.slug} title={post.data.title} description={post.data.description}
+             pubDate={post.data.pubDate} tags={post.data.tags} categories={post.data.categories} />
           ))
         }
       </ul>
@@ -77,45 +46,6 @@ const allBlogsTags = await getAllClassifications("tags")
       width: 95%;
       h1 {
         font-size: 1.4rem;
-      }
-    }
-  }
-  ul {
-    .blog {
-      position: relative;
-      list-style: none;
-      padding: 0.5rem 1rem;
-      margin: 1rem auto;
-      border-radius: 1rem;
-      background-color: var(--surface1);
-      @include mQ($breakpoint-sm) {
-        padding: 0.2rem 0.5rem;
-        margin: 0.5rem auto;
-      }
-      a {
-        @include blog-link
-      }
-      p {
-        text-decoration: none;
-        color: var(--text2);
-        padding-bottom: 0.2rem;
-        &:hover {
-          text-decoration: none;
-        }
-        @include mQ($breakpoint-sm) {
-          font-size:0.8rem;
-        }
-      }
-      span {
-        color: var(--text1);
-        position: absolute;
-        bottom: 0.5rem;
-        right: 1rem;
-        @include mQ($breakpoint-sm) {
-          bottom: 0.2rem;
-          right: 0.5rem;
-          font-size:0.6rem;
-        }
       }
     }
   }
