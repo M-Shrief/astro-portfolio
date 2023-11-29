@@ -5,12 +5,12 @@ import Layout from "../../../layouts/MainLayout.astro";
 // Components
 import BlogCard from "../../../components/blogCard.astro";
 // Utils
-import {getClassificationsList} from '../../../utils/blog'
+import {getSet} from '../../../utils/blog'
 
 const { category } = Astro.params;
 
 export async function getStaticPaths() {
-  const categories = await getClassificationsList("categories");
+  const categories = await getSet("categories");
 
   return categories.map((category) => {
     return {

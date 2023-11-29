@@ -6,7 +6,7 @@ const posts = async () => {
     })
 }
 
-export const getClassificationsList = async ( name: string) => {
+export const getSet = async ( name: string) => {
     const singlePages = await posts();
     const taxonomyPages = singlePages.map((page: any) => page.data[name]);
     let taxonomies: string[] = [];
@@ -20,7 +20,7 @@ export const getClassificationsList = async ( name: string) => {
     return taxonomy;
   };
   
-  export const getAllClassifications = async (name: string) => {
+  export const getList = async (name: string) => {
     const singlePages = await posts();
     const taxonomyPages = singlePages.map((page: any) => page.data[name]);
     let taxonomies: string[] = [];

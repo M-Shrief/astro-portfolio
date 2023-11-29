@@ -4,20 +4,12 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/MainLayout.astro";
 // Components
 import BlogCard from "../../components/blogCard.astro";
-// Utils
-import {getAllClassifications, getClassificationsList} from '../../utils/blog'
 
 const posts = (await getCollection("blog", ({data}) => {
   return import.meta.env.PROD ? data.isDraft !== true : true;
 })).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() 
 );
-
-// const allCategories = await getClassificationsList("categories")
-// const allBlogsCategories = await getAllClassifications("categories") 
-// const allTags = await getClassificationsList("tags")
-// const allBlogsTags = await getAllClassifications("tags")
-
 ---
 
 <Layout title="M. Shrief :: Blog" description="Blogs about Web development in the Backend and Frontend.">
