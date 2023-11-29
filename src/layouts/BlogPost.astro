@@ -87,9 +87,14 @@ const headings = Astro.props.headings
       }
 
       #title {
-        text-align: center;
-        padding: 1rem;
         border-radius: 1rem; 
+        font-size: 1.6rem;
+      }
+
+      #title, h1,h2,h3 {
+        @include mQ($breakpoint-sm) {
+          font-size: 1rem;
+        }
       }
 
       code {
