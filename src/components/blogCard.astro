@@ -1,0 +1,131 @@
+---
+interface Props {
+    slug: string;
+    title: string;
+    description: string;
+    pubDate: Date;
+    tags: string[];
+    categories: string[];
+}
+const { slug, title ,description, pubDate, tags, categories } = Astro.props;
+
+---
+
+<li class="blog">
+    <h3 class="title">
+        <a href={`/blog/${slug}/`}>{title}</a>
+    </h3>
+    <div class="categories">
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"></path>
+        </svg>
+        {
+            categories.map(category => (
+                <a class="category" href={`/blog/category/${category}`}>{category}</a>
+            ))
+        }
+    </div>
+    <p class="description">{description}</p>
+    <div class="tags">
+        {
+            tags.map(tag => (
+                <a class="tag" href={`/blog/tag/${tag}`}>#{tag}</a>
+            ))
+        }
+    </div>
+    <div class="date">
+        {
+            pubDate.toLocaleDateString("en-GB", {
+                weekday: "short",
+                year: 'numeric',
+                month: 'short',
+                day: "2-digit",
+            })
+        }
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg>
+    </div>
+</li>
+
+<style lang="scss">
+@import "../assets/mixins.scss";
+
+.blog {
+    display: grid;
+    position: relative;
+    list-style: none;
+    padding: 0.5rem 1rem;
+    margin: 1rem auto;
+    border-radius: 1rem;
+    background-color: var(--surface1);
+    @include mQ($breakpoint-sm) {
+        padding: 0.2rem 0.5rem;
+        margin: 0.5rem auto;
+    }
+    a {
+       @include blog-link
+    }
+
+    .title {
+        font-size: 1.4rem;
+        @include mQ($breakpoint-sm) {
+            font-size:1rem;
+        }
+    }
+    .description {
+        text-decoration: none;
+        color: var(--text2);
+        padding-bottom: 0.2rem;
+        &:hover {
+            text-decoration: none;
+        }
+        @include mQ($breakpoint-sm) {
+            font-size:0.8rem;
+        }
+    }
+
+    .categories {
+        display: inline-flex;
+        justify-self: end;
+        align-items: center;
+        padding: 0 0.5rem;
+        .category {
+            font-size: 1.2rem;
+            @include mQ($breakpoint-sm) {
+                font-size: 0.7rem;
+            }
+        }
+    }
+    
+    .tags {
+        display: inline-block;
+        .tag {
+            margin-right: 0.2rem;
+        }
+    }
+
+    .date {
+        display: inline-flex;
+        justify-self: end;
+        align-items: center;
+        padding-bottom:0.5rem;
+    }
+
+    .tag, .date {
+        font-size: 1rem;
+        @include mQ($breakpoint-sm) {
+            font-size: 0.6rem;
+        }
+    }
+
+    svg {
+        margin: 0 0.5rem;
+        width: 16px;
+        height: 16px;
+        @include mQ($breakpoint-sm) {
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+}
+</style>

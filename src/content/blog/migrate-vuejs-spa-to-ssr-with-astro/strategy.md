@@ -3,6 +3,8 @@
 title: 'Migrate from Vuejs SPA to SSR with Astro - Strategy'
 description: "Recommending a form of steps to accomplish a complete migration from Vuejs SPA to SSR with Astro."
 pubDate: '03 Nov 2023'
+categories: ["frontend"]
+tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
 ---
 
 This is an opinionated recommendation from my experience in the form of steps to accomplish a complete migration from Vuejs SPA to SSR with Astro in a simple and pragmatic way to get a SEO and performance boost.

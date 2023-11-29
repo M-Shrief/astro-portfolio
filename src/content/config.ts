@@ -21,6 +21,8 @@ const blog = defineCollection({
 		heroImage: z.string().optional(),
 		// Reference an array of related posts from the `blog` collection by `slug`
 		// relatedPosts: z.array(reference('blog')),
+		categories: z.array(z.string()).default(["others"]),
+		tags: z.array(z.string()).default(["others"]),
 	}),
 });
 

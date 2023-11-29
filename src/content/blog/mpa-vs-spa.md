@@ -3,6 +3,8 @@ title: 'MPA VS SPA'
 description: "We'll discuss Multi-Page Application (MPA) VS Single-Page Application (SPA) in terms of Rendering, State Management and Routing."
 pubDate: '12 Aug 2023'
 heroImage: ''
+categories: ["frontend"]
+tags: ["astro", "javascript", "mpa", "spa"]
 ---
 
 ## Overview

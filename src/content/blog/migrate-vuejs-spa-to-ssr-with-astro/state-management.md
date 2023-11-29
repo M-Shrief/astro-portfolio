@@ -2,6 +2,8 @@
 title: 'Migrate from Vuejs SPA to SSR with Astro - State Management'
 description: "We'll discuss how to manage your state in as SSR that uses Astro and Vuejs, either by using Pinia or just using Composition API."
 pubDate: '03 Nov 2023'
+categories: ["frontend"]
+tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
 ---
 
 Every framework have its way to address State Management, and not one but many libraries for that purpose. Unlike the most, Astro needs to be compatible so that it can be a platform that different users can use their favorite framework and state management library. 

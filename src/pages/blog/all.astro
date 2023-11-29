@@ -2,8 +2,12 @@
 import { getCollection } from "astro:content";
 // Layouts
 import Layout from "../../layouts/MainLayout.astro";
+// Components
+import BlogCard from "../../components/blogCard.astro";
 
-const posts = (await getCollection("blog")).sort(
+const posts = (await getCollection("blog", ({data}) => {
+  return import.meta.env.PROD ? data.isDraft !== true : true;
+})).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() 
 );
 ---
@@ -12,16 +16,12 @@ const posts = (await getCollection("blog")).sort(
   <main>
     <section >
       <h1>Blogs</h2>
+
       <ul >
         {
-          posts.filter(post => post.data.isDraft !== true).map((post) => (
-            <li class="blog">
-              <a href={`/blog/${post.slug}/`}>
-                <h4>{post.data.title}</h4>
-              </a>
-              <p>{post.data.description}</p>
-              <span>{post.data.pubDate.toLocaleDateString().slice(0, 16)}</span>
-            </li>
+          posts.map((post) => (
+            <BlogCard slug={post.slug} title={post.data.title} description={post.data.description}
+             pubDate={post.data.pubDate} tags={post.data.tags} categories={post.data.categories} />
           ))
         }
       </ul>
@@ -38,45 +38,6 @@ const posts = (await getCollection("blog")).sort(
       width: 95%;
       h1 {
         font-size: 1.4rem;
-      }
-    }
-  }
-  ul {
-    .blog {
-      position: relative;
-      list-style: none;
-      padding: 0.5rem 1rem;
-      margin: 1rem auto;
-      border-radius: 1rem;
-      background-color: var(--surface1);
-      @include mQ($breakpoint-sm) {
-        padding: 0.2rem 0.5rem;
-        margin: 0.5rem auto;
-      }
-      a {
-        @include blog-link
-      }
-      p {
-        text-decoration: none;
-        color: var(--text2);
-        padding-bottom: 0.2rem;
-        &:hover {
-          text-decoration: none;
-        }
-        @include mQ($breakpoint-sm) {
-          font-size:0.8rem;
-        }
-      }
-      span {
-        color: var(--text1);
-        position: absolute;
-        bottom: 0.5rem;
-        right: 1rem;
-        @include mQ($breakpoint-sm) {
-          bottom: 0.2rem;
-          right: 0.5rem;
-          font-size:0.6rem;
-        }
       }
     }
   }
