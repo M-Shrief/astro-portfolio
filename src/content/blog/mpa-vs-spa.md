@@ -1,11 +1,11 @@
 ---
-title: 'MPA VS SPA'
+title: "MPA VS SPA"
 description: "We'll discuss Multi-Page Application (MPA) VS Single-Page Application (SPA) in terms of Rendering, State Management and Routing."
-pubDate: '12 Aug 2023'
-heroImage: ''
+pubDate: "12 Aug 2023"
+heroImage: ""
 categories: ["frontend"]
 tags: ["astro", "javascript", "mpa", "spa"]
-related: ['intro-to-astro', 'migrate-vuejs-spa-to-ssr-with-astro/intro']
+related: ["intro-to-astro", "migrate-vuejs-spa-to-ssr-with-astro/intro"]
 ---
 
 ## Overview

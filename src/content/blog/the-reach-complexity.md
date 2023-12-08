@@ -1,10 +1,10 @@
 ---
-title: 'Reach of Complexity'
+title: "Reach of Complexity"
 description: "Why we need complex frameworks  like Nuxt even if we don't use them"
 isDraft: true
-pubDate: '12 Aug 2023'
-heroImage: ''
-relatedPosts: 
+pubDate: "12 Aug 2023"
+heroImage: ""
+relatedPosts:
 ---
 
 # The Reach of Complexity

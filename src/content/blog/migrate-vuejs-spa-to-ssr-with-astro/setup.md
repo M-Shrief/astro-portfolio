@@ -1,10 +1,14 @@
 ---
-title: 'Migrate from Vuejs SPA to SSR with Astro - Setup'
+title: "Migrate from Vuejs SPA to SSR with Astro - Setup"
 description: "Setting up our project's boilerplate and configuration"
-pubDate: '02 Nov 2023'
+pubDate: "02 Nov 2023"
 categories: ["frontend"]
-tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
-related: ["migrate-vuejs-spa-to-ssr-with-astro/intro", "migrate-vuejs-spa-to-ssr-with-astro/rendering"]
+tags: ["astro", "vuejs", "javascript", "spa", "ssr"]
+related:
+  [
+    "migrate-vuejs-spa-to-ssr-with-astro/intro",
+    "migrate-vuejs-spa-to-ssr-with-astro/rendering",
+  ]
 ---
 
 ## Initial Boilerplate
@@ -14,8 +18,8 @@ Create your first Astro project:
 ```bash
 $ npm create astro@latest
 ```
-You'll find Hueston (Astro's Cli) helping you out. Choose the recommended skeleton, choose whether you'll use TypeScript or not (choose strict if so), and install dependencies.
 
+You'll find Hueston (Astro's Cli) helping you out. Choose the recommended skeleton, choose whether you'll use TypeScript or not (choose strict if so), and install dependencies.
 
 You'll have something like:
 
@@ -32,29 +36,29 @@ Now we'll install Vuejs with Astro's Cli:
 ```bash
 $ npx astro add vue node
 ```
+
 It'll add Vuejs integration, so we can use Vuejs and .vue files, the Nodejs integration is to serve the SSR website.
 
 ```js
-
 // astro.config.mjs
 export default defineConfig({
-    // ................
-    integrations: [
-        vue(),
-    ],
-    output: "hybrid",
-    adapter: node({
-        mode: "standalone"
-    })
-    // ....................
+  // ................
+  integrations: [vue()],
+  output: "hybrid",
+  adapter: node({
+    mode: "standalone",
+  }),
+  // ....................
 });
 ```
 
 We need to choose our output strategey and adapter mode:
-- **output**: choose *hyprid* if the most of your website content is static, choose *server* if most of it is dynamic
-- **adapter mode**: we'll choose *standalone* to ease our development, and it helps us to seperate our backend and frontend, so both can scale seperately, it's not a must still.
+
+- **output**: choose _hyprid_ if the most of your website content is static, choose _server_ if most of it is dynamic
+- **adapter mode**: we'll choose _standalone_ to ease our development, and it helps us to seperate our backend and frontend, so both can scale seperately, it's not a must still.
 
 In the **src** file, we'll have three main files inside it:
+
 - **components**: contains Astro & Vuejs components (common convention, not required).
 - **layouts**: define the UI structure shared by one or more pages. (common convention, not required)
 - **pages**: A special folder that defines your website pages and routes (required)
@@ -83,6 +87,6 @@ $ npx astro add tailwind
 
 ## Resources
 
-- [Astro's Docs: Get Started](https://docs.astro.build/en/install/auto/ 'Documentation')
-- [Astro and Vuejs Integration](https://docs.astro.build/en/guides/integrations-guide/vue/ 'Documentation')
-- [Astro's Nodejs SSR Adapter](https://docs.astro.build/en/guides/integrations-guide/node/ 'Documentation')
+- [Astro's Docs: Get Started](https://docs.astro.build/en/install/auto/ "Documentation")
+- [Astro and Vuejs Integration](https://docs.astro.build/en/guides/integrations-guide/vue/ "Documentation")
+- [Astro's Nodejs SSR Adapter](https://docs.astro.build/en/guides/integrations-guide/node/ "Documentation")

@@ -1,10 +1,15 @@
 ---
-title: 'Migrate from Vuejs SPA to SSR with Astro - Dark/Light Themes'
+title: "Migrate from Vuejs SPA to SSR with Astro - Dark/Light Themes"
 description: "We'll discus how to add Dark/Light Themes to Astro projects, using a native approach."
-pubDate: '11 Nov 2023'
+pubDate: "11 Nov 2023"
 categories: ["frontend"]
 tags: ["astro", "javascript"]
-related: ["migrate-vuejs-spa-to-ssr-with-astro/intro", "migrate-vuejs-spa-to-ssr-with-astro/routing", "migrate-vuejs-spa-to-ssr-with-astro/state-management"]
+related:
+  [
+    "migrate-vuejs-spa-to-ssr-with-astro/intro",
+    "migrate-vuejs-spa-to-ssr-with-astro/routing",
+    "migrate-vuejs-spa-to-ssr-with-astro/state-management",
+  ]
 ---
 
 As for myself, I use the suggested way to change color themes from **web.dev**, it's very simple and efficient, and it uses HTML, CSS and Native JavaScript and that means I can use it in any framework.
@@ -12,6 +17,7 @@ As for myself, I use the suggested way to change color themes from **web.dev**, 
 It's efficient, simple and stupid, and that's it.
 
 ## HTML and SVGs
+
 I take the suggested SVGs for [moon and sun](https://web.dev/patterns/theming/theme-switch?hl=en "web.dev - Theme Switch") and paste them simply:
 
 ```astro
@@ -64,10 +70,9 @@ You need to add another listen for ViewTransitions event named: _"astro:page-loa
 
 ## CSS and Styling
 
-Now, you need to declare your theme variables in a simple CSS file, so that it changes when the *color-scheme* changes then import it in your Layout:
+Now, you need to declare your theme variables in a simple CSS file, so that it changes when the _color-scheme_ changes then import it in your Layout:
 
 ```css
-
 /* src/assets/base.css */
 * {
   --brand: #003cb3;
@@ -80,8 +85,8 @@ Now, you need to declare your theme variables in a simple CSS file, so that it c
   /* dark */
   --text1-dark: #fffff5db;
   --text2-dark: #a1a7aa;
-  --surface1-dark:#1e1e20;
-  --surface2-dark:#161618;
+  --surface1-dark: #1e1e20;
+  --surface2-dark: #161618;
 }
 
 :root {
@@ -105,7 +110,7 @@ Now, you need to declare your theme variables in a simple CSS file, so that it c
   }
 }
 
-[color-scheme='light'] {
+[color-scheme="light"] {
   color-scheme: light;
 
   --text1: var(--text1-light);
@@ -114,7 +119,7 @@ Now, you need to declare your theme variables in a simple CSS file, so that it c
   --surface2: var(--surface2-light);
 }
 
-[color-scheme='dark'] {
+[color-scheme="dark"] {
   color-scheme: dark;
 
   --text1: var(--text1-dark);
@@ -128,10 +133,9 @@ Now, you need to declare your theme variables in a simple CSS file, so that it c
   --icon-fill: var(#ffffffc4);
   --icon-fill-hover: var(#ffffff);
 }
-
 ```
 
-Now, put the recommended [CSS](https://web.dev/patterns/theming/theme-switch?hl=en#css "web.dev - Theme Switch CSS") in our Astro component, and make sure you add the *is:inline* so the icon changes:
+Now, put the recommended [CSS](https://web.dev/patterns/theming/theme-switch?hl=en#css "web.dev - Theme Switch CSS") in our Astro component, and make sure you add the _is:inline_ so the icon changes:
 
 ```astro
 
@@ -141,21 +145,21 @@ Now, put the recommended [CSS](https://web.dev/patterns/theming/theme-switch?hl=
 
 </style>
 ```
-Note: you don't need to use *open-props.easings*, if you don't want to.
+
+Note: you don't need to use _open-props.easings_, if you don't want to.
 
 ### With Tailwind
 
 If you're using tailwind, make sure to change it's darkMode config:
 
 ```js
-
 // tailwind.config.cjs
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // ...............
-  darkMode: ['class', '[color-scheme="dark"]'],
+  darkMode: ["class", '[color-scheme="dark"]'],
   // ..........
-}
+};
 ```
 
 ## Resources

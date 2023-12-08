@@ -1,10 +1,15 @@
 ---
-title: 'Migrate from Vuejs SPA to SSR with Astro - Rendering'
+title: "Migrate from Vuejs SPA to SSR with Astro - Rendering"
 description: "We'll discus how to control your pages and components rendering."
-pubDate: '9 Nov 2023'
+pubDate: "9 Nov 2023"
 categories: ["frontend"]
-tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
-related: ["migrate-vuejs-spa-to-ssr-with-astro/intro", "migrate-vuejs-spa-to-ssr-with-astro/routing", "migrate-vuejs-spa-to-ssr-with-astro/state-mana"]
+tags: ["astro", "vuejs", "javascript", "spa", "ssr"]
+related:
+  [
+    "migrate-vuejs-spa-to-ssr-with-astro/intro",
+    "migrate-vuejs-spa-to-ssr-with-astro/routing",
+    "migrate-vuejs-spa-to-ssr-with-astro/state-mana",
+  ]
 ---
 
 We'll discuss how we'll deal with our adapter's output strategy and how to control your pages and components rendering, but take note that I'll refer a lot to Astro's docs, because it's the original source of information.
@@ -22,6 +27,7 @@ We've got 2 options:
 export const prerender = false;
 ---
 ```
+
 - If most of your site should be server-rendered then choose **server**, and you can make any individual page or endpoint can opt-in to pre-rendering.
 
 ```astro
@@ -35,7 +41,8 @@ export const prerender = true;
 So let's talk more about specifics...
 
 ## Rendering Pages
-In most of our applications, we have different needs for our pages, the decision is yours. A lot of times, your page is static by default, like your *about* and *authentication* pages.
+
+In most of our applications, we have different needs for our pages, the decision is yours. A lot of times, your page is static by default, like your _about_ and _authentication_ pages.
 
 But there are some cases where you need your page to be server-rendered:
 
@@ -47,20 +54,22 @@ But there are some cases where you need your page to be server-rendered:
 // src/pages/partner/history
 
 // Canceling prerender, because we use hybrid output so that we can read the cookie and act.
-export const prerender = false; 
+export const prerender = false;
 
 const isAuthenticated = Astro.cookies.has('accessToken')
 if (!isAuthenticated) return Astro.redirect("/partners/auth");
 ---
 ```
-- If the route depends on something like an *id* param to make a request to the database, because you don't want it to show the same content it loaded first for different parameters:
+
+- If the route depends on something like an _id_ param to make a request to the database, because you don't want it to show the same content it loaded first for different parameters:
+
 ```astro
 
 ---
 // GET /api/poet/:id
 // src/pages/poet/[id].astro
 
-// Canceling prerender, because we use hybrid output 
+// Canceling prerender, because we use hybrid output
 export const prerender = false;
 const { id } = Astro.params;
 
@@ -72,18 +81,21 @@ else await fetchPoet(id);
 Until now, I didn't meet any cases that made it a **must** to server-render a page, I prefer to make static rendering my default, it's just enough.
 
 ## Rendering Component
+
 Now, let's talk about how we can use Astro's [client-directives](https://docs.astro.build/en/reference/directives-reference/#client-directives "Astro's docs: client-directives") to control which component is hydrated in the client or not and when it'll be hydrated, but it can only apply to other UI frameworks like Vuejs and React. Every directive has a priority level, so Astro knows which is more needed.
 
 Astro has five directives:
-- **client-load**: with a *high* priority, it loads and hydrates the component JavaScript immediately on page load.
-- **client-idle**: with a *medium* priority, it's my default choice. It's used with components that don't need to be hydrated immediately. It hydrated after the page's initial load.
+
+- **client-load**: with a _high_ priority, it loads and hydrates the component JavaScript immediately on page load.
+- **client-idle**: with a _medium_ priority, it's my default choice. It's used with components that don't need to be hydrated immediately. It hydrated after the page's initial load.
 - **client-only**: it's the same as client-load, but it skips the HTML server-render and renders only in the client, it's very useful when you're using web-only APIs like session or local storage.
-- **client-visible**: with a *low* priority, it loads and hydrates the component JavaScript once the component has entered the user’s viewport, which is very useful to use with content-intensive pages.
-- **client-media**: with a *low* priority, it hydrates once a certain CSS media query is met.
+- **client-visible**: with a _low_ priority, it loads and hydrates the component JavaScript once the component has entered the user’s viewport, which is very useful to use with content-intensive pages.
+- **client-media**: with a _low_ priority, it hydrates once a certain CSS media query is met.
 
 The same component can have different **client-directive** on different pages>
 
-As an example from my project ["Adeeb"](https://github.com/M-Shrief/Adeeb_Astro_SSR 'Github repo'), I have a component where I show most of my HTTP errors messages for users that take a client-directive on pages like the *authentication* page, *order* page and *history* page, so that it reacts to a failed login or invalid order:
+As an example from my project ["Adeeb"](https://github.com/M-Shrief/Adeeb_Astro_SSR "Github repo"), I have a component where I show most of my HTTP errors messages for users that take a client-directive on pages like the _authentication_ page, _order_ page and _history_ page, so that it reacts to a failed login or invalid order:
+
 ```astro
 
 <!-- ........... -->
@@ -91,7 +103,8 @@ As an example from my project ["Adeeb"](https://github.com/M-Shrief/Adeeb_Astro_
 <!-- ........... -->
 ```
 
-But it doesn't take any directives in */poem/[id]* or */poet/[id]* pages, so it reacts to non-existing IDs:
+But it doesn't take any directives in _/poem/[id]_ or _/poet/[id]_ pages, so it reacts to non-existing IDs:
+
 ```astro
 
 <!-- ........... -->
@@ -99,7 +112,8 @@ But it doesn't take any directives in */poem/[id]* or */poet/[id]* pages, so it 
 <!-- ........... -->
 ```
 
-Another component like *SelectPrints*, where I persist data on SessionStorage, uses a client-only directive:
+Another component like _SelectPrints_, where I persist data on SessionStorage, uses a client-only directive:
+
 ```astro
 
 <!-- src/pages/index.astro -->

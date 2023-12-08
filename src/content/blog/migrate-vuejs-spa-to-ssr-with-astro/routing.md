@@ -1,23 +1,30 @@
 ---
-title: 'Migrate from Vuejs SPA to SSR with Astro - Routing'
+title: "Migrate from Vuejs SPA to SSR with Astro - Routing"
 description: "Taking a look at Astro's file-based routing, and how to use it to migrate a Vuejs SPA to an SSR, and how to force specific pages to be rendered as static or server-rendered, and guarding specific routes that need authentication."
-pubDate: '10 Nov 2023'
+pubDate: "10 Nov 2023"
 categories: ["frontend"]
-tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
-related: ["migrate-vuejs-spa-to-ssr-with-astro/intro", "migrate-vuejs-spa-to-ssr-with-astro/rendering", "migrate-vuejs-spa-to-ssr-with-astro/state-management"]
+tags: ["astro", "vuejs", "javascript", "spa", "ssr"]
+related:
+  [
+    "migrate-vuejs-spa-to-ssr-with-astro/intro",
+    "migrate-vuejs-spa-to-ssr-with-astro/rendering",
+    "migrate-vuejs-spa-to-ssr-with-astro/state-management",
+  ]
 ---
 
-In Vuejs, you'll a library like VueRouter to configure your routes and route-guards, but Astro uses a technique to configure your routes with conventions. Astro uses **file-based routing**, you create your pages in *src/pages* directory, and it maps the page to a route in a conventional way.
+In Vuejs, you'll a library like VueRouter to configure your routes and route-guards, but Astro uses a technique to configure your routes with conventions. Astro uses **file-based routing**, you create your pages in _src/pages_ directory, and it maps the page to a route in a conventional way.
 
 ```md
+src/pages/index.astro -> mysite.com/
+src/pages/about.astro -> mysite.com/about
+src/pages/about/index.astro -> mysite.com/about
+src/pages/about/me.astro -> mysite.com/about/me
 
-src/pages/index.astro        ->     mysite.com/
-src/pages/about.astro        ->     mysite.com/about
-src/pages/about/index.astro  ->     mysite.com/about
-src/pages/about/me.astro     ->     mysite.com/about/me
 <!-- dealing with parameters, like posts/42142 -->
-src/pages/posts/[id].astro   ->     mysite.com/posts/:id 
+
+src/pages/posts/[id].astro -> mysite.com/posts/:id
 ```
+
 ## Cool, but why?
 
 As for my self, I didn't have any problem using an external file to map my site's routes to specific pages, I didn't think it worth the headache to add such a feature, and I didn't know why a lot of frameworks put it in the front page of their docs as an **important** feature.
@@ -76,7 +83,8 @@ await Promise.allSettled([
 I only wanted to say that this feature is very helpful, even if it's so simple. Astro's docs cover the topic greatly.
 
 ## Route guards
-An important note that costed me sometime, you need to make sure that the page is server-rendered, so the guards actually works correctly. If you set your SSR adapter's output to *hybrid*, you need to opt-out of pre-rendering:
+
+An important note that costed me sometime, you need to make sure that the page is server-rendered, so the guards actually works correctly. If you set your SSR adapter's output to _hybrid_, you need to opt-out of pre-rendering:
 
 ```astro
 
@@ -89,7 +97,9 @@ const isAuthenticated = Astro.cookies.has('accessToken')
 if (!isAuthenticated) return Astro.redirect("/partners/auth");
 ---
 ```
-If you set the SSR adapter's output to *server*, then you're fine with only declaring your guards.
+
+If you set the SSR adapter's output to _server_, then you're fine with only declaring your guards.
 
 ## Resources
+
 - [Astro's Docs: Routing](https://docs.astro.build/en/core-concepts/routing/ "Astro's Documentation")

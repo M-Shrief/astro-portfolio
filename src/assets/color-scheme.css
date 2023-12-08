@@ -1,5 +1,4 @@
 * {
-
   --brand: #003cb3;
   /* light */
   --text1-light: #3c3c43; /*#*/
@@ -10,8 +9,8 @@
   /* dark */
   --text1-dark: #fffff5db;
   --text2-dark: #a1a7aa;
-  --surface1-dark:#1e1e20;
-  --surface2-dark:#161618;
+  --surface1-dark: #1e1e20;
+  --surface2-dark: #161618;
 }
 
 :root {
@@ -35,7 +34,7 @@
   }
 }
 
-[color-scheme='light'] {
+[color-scheme="light"] {
   color-scheme: light;
 
   --text1: var(--text1-light);
@@ -44,7 +43,7 @@
   --surface2: var(--surface2-light);
 }
 
-[color-scheme='dark'] {
+[color-scheme="dark"] {
   color-scheme: dark;
 
   --text1: var(--text1-dark);

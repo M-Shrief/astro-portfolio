@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
@@ -6,21 +6,21 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   markdown: {
     shikiConfig: {
-      theme: 'github-dark-dimmed',
-      wrap: true // Enable word wrap to prevent horizontal scrolling
-    }
+      theme: "github-dark-dimmed",
+      wrap: true, // Enable word wrap to prevent horizontal scrolling
+    },
   },
   prefetch: {
     prefetchAll: false,
-    defaultStrategy: 'viewport'
+    defaultStrategy: "viewport",
   },
-  site: 'https://m-shriet.tech',
+  site: "https://m-shriet.tech",
   integrations: [
     mdx(),
     sitemap({
-      changefreq: 'weekly',
+      changefreq: "weekly",
       priority: 0.7,
-      entryLimit: 100
+      entryLimit: 100,
     }),
-  ]
+  ],
 });

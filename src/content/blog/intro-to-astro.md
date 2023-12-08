@@ -1,11 +1,11 @@
 ---
-title: 'An introduction to Astro '
+title: "An introduction to Astro "
 description: "Breaking Astro main concepts and advantages, and it's impact on developers and the market, in my view"
-pubDate: '23 Sep 2023'
-heroImage: ''
+pubDate: "23 Sep 2023"
+heroImage: ""
 categories: ["frontend"]
 tags: ["astro", "javascript", "mpa"]
-related: ['mpa-vs-spa', 'migrate-vuejs-spa-to-ssr-with-astro/intro']
+related: ["mpa-vs-spa", "migrate-vuejs-spa-to-ssr-with-astro/intro"]
 ---
 
 Nowaday in the frontend sphere, it's almost required to work in a _Meta framework_ that gives you _more features_, even if you don't need it because of a technical problem. It's needed because you're pushed to use it!
@@ -42,12 +42,11 @@ Even better, you can tell Astro exactly how and when to render each component wi
 
 In Astro, it’s up to you as the developer to explicitly tell Astro which components on the page need to also run in the browser. Astro will only hydrate exactly what’s needed on the page and leave the rest of your site as static HTML.
 
-
 ## Astro for Businesses
 
 As previously said, with Astro you'll only scale your website complexity as you need it, not getting your site fully reactive with a SPA framework just because you need a little reactivity here and there. You just do what you need when you need it.
 
-Besides you'll not lose any core business values like SEO and performance, you can't just ignore these core values in the market, except in special cases. But if you choose a SPA framework like _React_, you'll need to solve these things by adding more complexity with something like _Nextjs_ or a plugin, and these things are great, but if you don't actually need them, they're wasting time and money. 
+Besides you'll not lose any core business values like SEO and performance, you can't just ignore these core values in the market, except in special cases. But if you choose a SPA framework like _React_, you'll need to solve these things by adding more complexity with something like _Nextjs_ or a plugin, and these things are great, but if you don't actually need them, they're wasting time and money.
 
 And you can achieve a great user experience with features like **ViewTransitions**, which take advantage of the browser APIs to give smooth transitions between your pages without needing to convert your site to a SPA only for that thing.
 
@@ -79,7 +78,7 @@ Note: if you're a junior, maybe it's still better to learn React and TypeScript 
 
 ## Resources
 
-- [Astro's docs](https://docs.astro.build 'open the docs')
-- [Ryan Carniato and Fred Scot chat about Astro and SSR](https://www.youtube.com/watch?v=2ZEMb_H-LYE 'youtube video')
-- [Fred K. Schott: Astro, Open Source, and the Web](https://www.youtube.com/watch?v=9196iQJtK4s 'Youtube video')
-- [Theo t3 with Fred Schott, Astro version](https://youtu.be/CYuujJvgmns 'youtube video')
+- [Astro's docs](https://docs.astro.build "open the docs")
+- [Ryan Carniato and Fred Scot chat about Astro and SSR](https://www.youtube.com/watch?v=2ZEMb_H-LYE "youtube video")
+- [Fred K. Schott: Astro, Open Source, and the Web](https://www.youtube.com/watch?v=9196iQJtK4s "Youtube video")
+- [Theo t3 with Fred Schott, Astro version](https://youtu.be/CYuujJvgmns "youtube video")
