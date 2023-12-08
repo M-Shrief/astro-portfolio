@@ -9,26 +9,13 @@ const posts = async () => {
 export const getSet = async (name: string) => {
   const singlePages = await posts();
   const taxonomyPages = singlePages.map((page: any) => page.data[name]);
-  let taxonomies: string[] = [];
+  let taxonomies = new Set<string>();
   for (let i = 0; i < taxonomyPages.length; i++) {
     const categoryArray = taxonomyPages[i];
     for (let j = 0; j < categoryArray.length; j++) {
-      taxonomies.push(categoryArray[j]);
+      taxonomies.add(categoryArray[j]);
     }
   }
-  const taxonomy = [...new Set(taxonomies)];
+  const taxonomy = [...taxonomies];
   return taxonomy;
-};
-
-export const getList = async (name: string) => {
-  const singlePages = await posts();
-  const taxonomyPages = singlePages.map((page: any) => page.data[name]);
-  let taxonomies: string[] = [];
-  for (let i = 0; i < taxonomyPages.length; i++) {
-    const categoryArray = taxonomyPages[i];
-    for (let j = 0; j < categoryArray.length; j++) {
-      taxonomies.push(categoryArray[j]);
-    }
-  }
-  return taxonomies;
 };
