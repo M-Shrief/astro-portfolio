@@ -1,0 +1,59 @@
+---
+import type { MarkdownHeading } from 'astro';
+type Props = {
+  headings: MarkdownHeading[], 
+  pubDate: Date;
+};
+
+const {headings, pubDate} = Astro.props
+---
+<aside>
+    <div class="blog-aside">
+        <nav >
+            <h3>Table of Content</h3>
+            {
+            headings.map(head => (
+                <a class="header" href={`#${head.slug}`} style={`margin-left: ${head.depth * 0.5}rem`}>
+                {head.text}
+                </a>
+            ))
+            }
+        </nav>
+        <p class="date">Published at: {pubDate.toUTCString().slice(0, 16)}</p>   
+    </div>  
+</aside>
+
+<style lang="scss">
+@import "../assets/mixins.scss";
+.blog-aside {
+    position: sticky;
+    top: 0.5rem;
+    margin: 0 1rem;
+}
+h3 {
+    @include mQ($breakpoint-sm) {
+        font-size:0.8rem
+    }
+}
+.header {
+    display: block;
+    color: var(--text1);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding-top: 0.5rem;
+    &:hover {
+        text-decoration: underline;
+    }   
+    @include mQ($breakpoint-sm) {
+        font-size: 0.8rem;
+    }
+}
+
+.date {
+    font-size: 1rem;
+    font-weight: 600;
+    @include mQ($breakpoint-sm) {
+        font-size:0.7rem
+    }
+}
+</style>

@@ -1,6 +1,6 @@
 ---
 import { slide } from "astro:transitions";
-import type { CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 // Layout
 import MainLayout from "./MainLayout.astro";
 // Components
@@ -9,36 +9,49 @@ import CommentBox from "../components/commentBox.astro";
 // Styles
 import "../assets/base.css";
 import type { MarkdownHeading } from "astro";
+import BlogAside from "../components/blogAside.astro";
+import BlogList from "../components/blogList.astro";
 
 type Props = {
   data: CollectionEntry<"blog">["data"],
   headings: MarkdownHeading[]
-};
+}
 
-const { title, description, pubDate } = Astro.props.data;
+const { title, description, heroImage, pubDate, related } = Astro.props.data;
 const headings = Astro.props.headings
+
+const relatedBlogs: CollectionEntry<"blog">[] = await getCollection("blog", (blog) => {
+  if (import.meta.env.PROD) {
+    if (blog.data.isDraft !== true && related.includes(blog.slug)) return true;
+  } else {
+    if (related.includes(blog.slug)) return true;
+  }
+})
 ---
 
 <MainLayout title={title} description={description}>
   <main id="blog" transition:name="blog" transition:animate={slide({duration: '0.4s'})}>
-    <aside role="navigation">
-      <h3>Table of Content</h3>
-      {
-        headings.map(head => (
-          <a href={`#${head.slug}`} style={`margin-left: ${head.depth * 0.5}rem`}>
-            <p>{head.text}</p>
-          </a>
-        ))
-      }
-      <span id="date">Published at: {pubDate.toUTCString().slice(0, 16)}</span>
-    </aside>
+    <BlogAside headings={headings} pubDate={pubDate} />
+  
     <article>
       <h1 id="title">{title}</h1>
       <slot />
     </article>
+  
+    {
+     related.length != 0 ?
+      (
+      <div class="related-blogs">
+        <h3>Related Blogs:</h3>
+        <BlogList posts={relatedBlogs} />
+      </div>
+      )
+     : false
+    }
   </main>
-  <CommentBox repo={'M-Shrief/astro-portfolio'} />
 
+  <CommentBox repo={'M-Shrief/astro-portfolio'} />
+  
   <Footer />
 </MainLayout>
 
@@ -46,111 +59,115 @@ const headings = Astro.props.headings
   @import "../assets/mixins.scss";
 
   #blog {
-    width: 95%;
-    margin: 0rem auto;
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    overflow: hidden;
-    @include mQ($breakpoint-md) {
-      flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-areas: 'article aside';
+    @include mQ($breakpoint-sm) {
+      display: block;
     }
     article {
-      width: 60%;
-      margin: 1rem auto;
-      @include mQ($breakpoint-md) {
-        width: 95%;
-      }
+      grid-area: article;
+    }
+    aside {
+      grid-area: aside;
+    }
+  }
+  article {
+    margin: 1rem auto;
+    @include mQ($breakpoint-md) {
+      width: 95%;
+    }
 
-      p {
-        padding-left: 0.5rem;
-        font-size: 1.2rem;
-        @include mQ($breakpoint-sm) {
-          padding-left: 0.2rem;
-          font-size: 0.8rem;
-        }
+    p {
+      padding-left: 0.5rem;
+      font-size: 1.2rem;
+      @include mQ($breakpoint-sm) {
+        padding-left: 0.2rem;
+        font-size: 0.8rem;
       }
+    }
 
-      li {
-        font-size: 1.1rem;
-        margin: 0.3rem auto;
-        @include mQ($breakpoint-sm) {
-          font-size: 0.8rem;
-          margin: 0.1rem auto;
-        }
+    li {
+      font-size: 1.1rem;
+      margin: 0.3rem auto;
+      @include mQ($breakpoint-sm) {
+        font-size: 0.8rem;
+        margin: 0.1rem auto;
       }
+    }
 
-      a {
-        text-decoration: underline;
-        font-weight: 600;
-        color: var(--brand);
+    a {
+      text-decoration: underline;
+      font-weight: 600;
+      color: var(--brand);
+    }
+
+    #title {
+      border-radius: 1rem; 
+      font-size: 1.6rem;
+    }
+
+    #title, h1,h2,h3 {
+      @include mQ($breakpoint-sm) {
+        font-size: 1rem;
       }
+    }
 
-      #title {
-        border-radius: 1rem; 
-        font-size: 1.6rem;
+    code {
+      border-radius: 1rem;
+      padding: 1rem;
+      span {
+        display: inline-block;
+        font-size: 1rem;
       }
-
-      #title, h1,h2,h3 {
-        @include mQ($breakpoint-sm) {
-          font-size: 1rem;
-        }
-      }
-
-      code {
-        border-radius: 1rem;
-        padding: 1rem;
+      @include mQ($breakpoint-sm) {
+        padding: 0.5rem;
         span {
-          display: inline-block;
-          font-size: 1rem;
-        }
-        @include mQ($breakpoint-sm) {
-          padding: 0.5rem;
-          span {
-            padding: 0.2rem 0;
-            font-size:0.6rem;
-          }
+          padding: 0.2rem 0;
+          font-size:0.6rem;
         }
       }
     }
-    aside {
-      min-width: 15%;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      margin-top: 2rem;
+  }
+  aside {
+    min-width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 2rem;
+    @include mQ($breakpoint-md) {
+      margin-top: 1rem;
+      margin-left: 1rem;
+    }
+    a, p {
+      margin: 0.1rem 0;
+      padding: 0.1rem 0;
+      font-weight: 600;
       @include mQ($breakpoint-md) {
+        font-size:1rem;
+      }
+      @include mQ($breakpoint-sm) {
+        font-size:0.8rem;
+      }
+    }
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    #date {
+      margin-top: 2rem;
+      font-size: 1rem;
+      @include mQ($breakpoint-md) {
+        margin-top: 1.5rem;
+        font-size:0.8rem;
+      }
+      @include mQ($breakpoint-sm) {
         margin-top: 1rem;
-        margin-left: 1rem;
-      }
-      a, p {
-        margin: 0.1rem 0;
-        padding: 0.1rem 0;
-        font-weight: 600;
-        @include mQ($breakpoint-md) {
-          font-size:1rem;
-        }
-        @include mQ($breakpoint-sm) {
-          font-size:0.8rem;
-        }
-      }
-      a {
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-      #date {
-        margin-top: 2rem;
-        font-size: 1rem;
-        @include mQ($breakpoint-md) {
-          margin-top: 1.5rem;
-          font-size:0.8rem;
-        }
-        @include mQ($breakpoint-sm) {
-          margin-top: 1rem;
-          font-size:0.6rem;
-        }
+        font-size:0.6rem;
       }
     }
   }
