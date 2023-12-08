@@ -4,6 +4,7 @@ description: "We'll take another route for migrating your Vuejs SPA with Astro i
 pubDate: '01 Nov 2023'
 categories: ["frontend"]
 tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
+related: ["migrate-vuejs-spa-to-ssr-with-astro/setup", "migrate-vuejs-spa-to-ssr-with-astro/strategy", "migrate-vuejs-spa-to-ssr-with-astro/state-management", "migrate-vuejs-spa-to-ssr-with-astro/routing"]
 ---
 
 ## Vuesjs SSR solutions

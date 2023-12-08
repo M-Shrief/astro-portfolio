@@ -4,6 +4,7 @@ description: "We'll discuss how to manage your state in as SSR that uses Astro a
 pubDate: '03 Nov 2023'
 categories: ["frontend"]
 tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
+related: ["migrate-vuejs-spa-to-ssr-with-astro/intro", "migrate-vuejs-spa-to-ssr-with-astro/strategy", "migrate-vuejs-spa-to-ssr-with-astro/rendering"]
 ---
 
 Every framework have its way to address State Management, and not one but many libraries for that purpose. Unlike the most, Astro needs to be compatible so that it can be a platform that different users can use their favorite framework and state management library. 

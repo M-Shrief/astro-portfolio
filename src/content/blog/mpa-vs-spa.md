@@ -5,6 +5,7 @@ pubDate: '12 Aug 2023'
 heroImage: ''
 categories: ["frontend"]
 tags: ["astro", "javascript", "mpa", "spa"]
+related: ['intro-to-astro', 'migrate-vuejs-spa-to-ssr-with-astro/intro']
 ---
 
 ## Overview

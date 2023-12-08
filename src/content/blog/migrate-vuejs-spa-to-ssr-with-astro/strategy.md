@@ -5,6 +5,7 @@ description: "Recommending a form of steps to accomplish a complete migration fr
 pubDate: '03 Nov 2023'
 categories: ["frontend"]
 tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
+related: ["migrate-vuejs-spa-to-ssr-with-astro/intro","migrate-vuejs-spa-to-ssr-with-astro/rendering", "migrate-vuejs-spa-to-ssr-with-astro/state-management"]
 ---
 
 This is an opinionated recommendation from my experience in the form of steps to accomplish a complete migration from Vuejs SPA to SSR with Astro in a simple and pragmatic way to get a SEO and performance boost.

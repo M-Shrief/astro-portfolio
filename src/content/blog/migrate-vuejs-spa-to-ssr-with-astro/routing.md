@@ -4,6 +4,7 @@ description: "Taking a look at Astro's file-based routing, and how to use it to 
 pubDate: '10 Nov 2023'
 categories: ["frontend"]
 tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
+related: ["migrate-vuejs-spa-to-ssr-with-astro/intro", "migrate-vuejs-spa-to-ssr-with-astro/rendering", "migrate-vuejs-spa-to-ssr-with-astro/state-management"]
 ---
 
 In Vuejs, you'll a library like VueRouter to configure your routes and route-guards, but Astro uses a technique to configure your routes with conventions. Astro uses **file-based routing**, you create your pages in *src/pages* directory, and it maps the page to a route in a conventional way.

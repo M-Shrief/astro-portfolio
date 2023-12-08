@@ -4,6 +4,7 @@ description: "Setting up our project's boilerplate and configuration"
 pubDate: '02 Nov 2023'
 categories: ["frontend"]
 tags: ["astro", 'vuejs', "javascript", "spa", 'ssr']
+related: ["migrate-vuejs-spa-to-ssr-with-astro/intro", "migrate-vuejs-spa-to-ssr-with-astro/rendering"]
 ---
 
 ## Initial Boilerplate
