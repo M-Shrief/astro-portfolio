@@ -1,0 +1,75 @@
+---
+
+// Utils
+import {getSet} from '../utils/blog'
+
+const categories = await getSet('categories');
+const tags = await getSet('tags');
+---
+
+<nav>
+    <div class="taxonomies">
+        <div class="categories">
+            <h4>Categories</h4>
+            {
+                categories.map(category => (
+                    <a class="category" href={`/blog/category/${category}`}>{category}</a>
+                ))
+            }
+        </div>
+        <div class="tags">
+            <h4>Tags</h4>
+            {
+                tags.map(tag => (
+                    <a class="tag" href={`/blog/tag/${tag}`}>{tag}</a>
+                ))
+            }
+        </div>
+    </div>
+</nav>
+
+<style lang="scss">
+@import "../assets/mixins.scss";
+nav {
+    grid-area:taxonomies-list;
+}
+.taxonomies {
+    position: sticky;
+    top: 0.5rem;
+}
+.categories, .tags {
+    background-color: var(--surface1);
+    border-radius: 0.8rem;
+    padding: 1rem;
+    margin: 1rem 0.5rem;
+    @include mQ($breakpoint-sm) {
+        padding: 0.3rem;
+        margin: 0.3 0.1rem;
+    }
+    h4 {
+        text-align: center;
+        margin: 0.5rem 0;
+        @include mQ($breakpoint-sm) {
+            margin: 0.3rem;
+        }
+    }
+    .category, .tag {
+        display: inline-block;
+        color: var(--text1);
+        background-color: var(--surface2);
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        border-radius: 1rem 0;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+        @include mQ($breakpoint-sm) {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.5rem;
+            margin: 0.3rem;
+        }
+    }
+}
+</style>
