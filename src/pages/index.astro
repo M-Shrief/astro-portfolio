@@ -10,11 +10,10 @@ import ShipImg from '../assets/images/ship.png';
   <main>
     <section id="summary">
 
-      <Image src={ShipImg} alt="Sailing Frigate across seas of code."
-        width="480" height="360" decoding="async" loading="lazy" />
 
-      <div>
         <h1>Mohamed Shrief<br><span>Junior Software Engineer</span></h1>
+        <Image src={ShipImg} alt="Sailing Frigate across seas of code."
+        width="240" height="240" decoding="async" loading="lazy" />
         <ul>
           <li>I'm working across the <strong>Backend</strong> and the <strong>Frontend</strong></li>
           <li>
@@ -44,32 +43,6 @@ import ShipImg from '../assets/images/ship.png';
         href="https://raw.githubusercontent.com/M-Shrief/M-Shrief/main/Mohamed%20Shrief%20-%20%20Junior%20Software%20Engineer%20(Backend%20-%20Frontend).pdf"
         >Resume</a
         >
-      </div>
-    </section>
-    <section id="blogs">
-      <h2>Recent Blogs:</h2>
-      <ul>
-        <li>
-          <a class="blog" rel="blog" target="_self" href="/blog/migrate-vuejs-spa-to-ssr-with-astro/dark-light-themes"
-            >Migrate from Vuejs SPA to SSR with Astro - Adding Dark/Light Themes</a
-          > 
-        </li>
-        <li>
-          <a class="blog" rel="blog" target="_self" href="/blog/migrate-vuejs-spa-to-ssr-with-astro/routing"
-            >Migrate from Vuejs SPA to SSR with Astro - Routing</a
-          > 
-        </li>
-        <li>
-          <a class="blog" rel="blog" target="_self" href="/blog/migrate-vuejs-spa-to-ssr-with-astro/rendering"
-            >Migrate from Vuejs SPA to SSR with Astro - Rendering</a
-          > 
-        </li>
-        <li>
-          <a class="blog" rel="blog" target="_self" href="/blog/migrate-vuejs-spa-to-ssr-with-astro/state-management"
-            >Migrate from Vuejs SPA to SSR with Astro - State Management</a
-          > 
-        </li>
-      </ul>
     </section>
     <!-- <section id="characteristics">
       <h2>I'm open to work full-time or as a <strong>freelancer</strong></h2>
@@ -105,10 +78,10 @@ import ShipImg from '../assets/images/ship.png';
 <style lang="scss">
   @import "../assets/mixins.scss";
   main {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 1rem auto;
+    // display: flex;
+    // flex-direction: column;
+    // width: 60%;
+    // margin: 1rem auto;
     
     @include mQ($breakpoint-md) {
       width: 95%;
@@ -119,9 +92,12 @@ import ShipImg from '../assets/images/ship.png';
     }
     #summary {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      flex-flow: row-reverse;
+      // flex-flow: row-reverse;
+      // width: 60%;
+      // margin: 0 auto;
       
       @include mQ($breakpoint-md) {
         flex-direction: column;
@@ -160,27 +136,7 @@ import ShipImg from '../assets/images/ship.png';
           height: 240px;
         }
       }
-      #open-to-work {
-        font-size: 1.2rem;
-        @include mQ($breakpoint-sm) {
-          font-size: 1rem;
-        }
-      }
       @include social-info;
-    }
-
-    #blogs {
-      h2 {
-        @include mQ($breakpoint-sm) {
-          font-size: 1.2rem;
-        }
-      }
-      li {
-        margin: 0.5rem auto;
-      }
-      .blog {
-        @include blog-link
-      }
     }
 
     #characteristics {
